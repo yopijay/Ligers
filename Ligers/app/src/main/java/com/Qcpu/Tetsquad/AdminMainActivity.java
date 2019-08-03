@@ -14,14 +14,16 @@ import android.view.View;
 import com.sdsmdg.tastytoast.TastyToast;
 import android.widget.Toast;
 import android.support.v7.app.AlertDialog;
+import at.markushi.ui.CircleButton;
 
-public class AdminMainActivity extends Activity {
+public class AdminMainActivity extends Activity implements View.OnClickListener {
 	
 	//TextVuews
 	TextView fullname, type;
 	
 	//Buttons
-	FancyButton profile, message, notif, logs;
+	FancyButton profile;
+	CircleButton message, notif, logs;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -52,24 +54,16 @@ public class AdminMainActivity extends Activity {
 		profile.setTextSize(15);
 		profile.setRadius(20);
 		profile.setCustomTextFont("Century Gothic.ttf");
+		profile.setOnClickListener(this);
 		
-		/*message = (FancyButton) findViewById(R.id.messageBtn);
-		message.setIconResource("\uf03a");
-		message.setFontIconSize(30);
-		message.setText("");
-		message.setRadius(100);
+		message = (CircleButton) findViewById(R.id.messageBtn);
+		message.setOnClickListener(this);
 		
-		notif = (FancyButton) findViewById(R.id.notificationBtn);
-		notif.setIconResource("\uf03a");
-		notif.setFontIconSize(30);
-		notif.setText("");
-		notif.setRadius(100);
+		notif = (CircleButton) findViewById(R.id.notifBtn);
+		notif.setOnClickListener(this);
 		
-		logs = (FancyButton) findViewById(R.id.logsBtn);
-		logs.setIconResource("\uf03a");
-		logs.setFontIconSize(30);
-		logs.setText("");
-		logs.setRadius(100);*/
+		logs = (CircleButton) findViewById(R.id.logsBtn);
+		logs.setOnClickListener(this);
 	}
 	
 	public void alertPopup() {
@@ -78,5 +72,25 @@ public class AdminMainActivity extends Activity {
 		
 		alert.setView(alertView);
 		alert.create().show();
+	}
+	
+	public void onClick(View v) {
+		switch(v.getId()) {
+			case R.id.profileBtn:
+				TastyToast.makeText(this, "Hi! Im Prpfile Button!", Toast.LENGTH_SHORT, TastyToast.INFO);
+			break;
+			
+			case R.id.messageBtn:
+				TastyToast.makeText(this, "Hi! Im Message Button", Toast.LENGTH_SHORT, TastyToast.INFO);
+			break;
+			
+			case R.id.notifBtn:
+				TastyToast.makeText(this, "Hi! Im Notification Button", Toast.LENGTH_SHORT, TastyToast.INFO);
+			break;
+			
+			case R.id.logsBtn:
+				TastyToast.makeText(this, "Hi! Im Logs Button", Toast.LENGTH_SHORT, TastyToast.INFO);
+			break;
+		}
 	}
 }

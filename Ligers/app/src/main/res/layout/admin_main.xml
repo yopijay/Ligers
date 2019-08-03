@@ -94,6 +94,7 @@
 					android:layout_marginBottom="20dp">
 
 					<at.markushi.ui.CircleButton
+						android:id="@+id/messageBtn"
 						android:layout_width="50dip"
 						android:layout_height="50dip"
 						android:src="@drawable/ic_message"
@@ -103,6 +104,7 @@
 						android:layout_columnWeight="1"/>
 
 					<at.markushi.ui.CircleButton
+						android:id="@+id/notifBtn"
 						android:layout_width="50dip"
 						android:layout_height="50dip"
 						android:src="@drawable/ic_notification"
@@ -112,6 +114,7 @@
 						android:layout_columnWeight="1"/>
 
 					<at.markushi.ui.CircleButton
+						android:id="@+id/logsBtn"
 						android:layout_width="50dip"
 						android:layout_height="50dip"
 						android:src="@drawable/ic_logs"
