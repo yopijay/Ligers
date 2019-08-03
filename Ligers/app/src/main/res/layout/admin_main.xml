@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content">
+
+	<RelativeLayout
+		xmlns:fancy="http://schemas.android.com/apk/res-auto"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#FFFFFF">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="10dp"
+			android:id="@+id/banner"
+			android:background="#00B0FF"/>
+
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@+id/banner">
+
+			<RelativeLayout
+				xmlns:card_view="http://schemas.android.com/apk/res-auto"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="#FFFFFF"
+				android:padding="5dp">
+
+				<android.support.v7.widget.CardView
+					xmlns:card_view="http://schemas.android.com/apk/res-auto"
+					android:id="@+id/profile_background"
+					android:layout_gravity="center"
+					android:layout_width="match_parent"
+					android:layout_height="240dp"
+					card_view:cardCornerRadius="10dp"
+					android:layout_margin="2dp"
+					android:paddingTop="40dp"
+					android:paddingBottom="40dp">
+
+				</android.support.v7.widget.CardView>
+
+				<android.support.v7.widget.CardView
+					xmlns:card_view="http://schemas.android.com/apk/res-auto"
+					android:id="@+id/profile_picture"
+					android:layout_width="180dp"
+					android:layout_height="180dp"
+					card_view:cardCornerRadius="90dp"
+					card_view:cardBackgroundColor="#FFFFFF"
+					android:layout_marginTop="-100dp"
+					android:layout_below="@+id/profile_background"
+					android:layout_centerHorizontal="true"
+					android:layout_marginBottom="20dp">
+
+				</android.support.v7.widget.CardView>
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Paul John Judan"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_below="@id/profile_picture"
+					android:layout_centerHorizontal="true"
+					android:id="@+id/user_fullname"
+					android:textColor="#616161"
+					android:textSize="27sp"
+					android:textStyle="bold"/>
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Admin"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:layout_below="@id/user_fullname"
+					android:layout_centerHorizontal="true"
+					android:id="@+id/user_type"
+					android:textSize="16sp"
+					android:textColor="#616161"
+					android:layout_marginBottom="10dp"/>
+
+				<GridLayout
+					android:id="@+id/buttonGrid"
+					android:layout_width="200dp"
+					android:layout_height="fill_parent"
+					android:rowCount="1"
+					android:columnCount="3"
+					android:gravity="center_horizontal|center_vertical"
+					android:numColumns="auto_fit"
+					android:stretchMode="columnWidth"
+					android:layout_below="@+id/user_type"
+					android:layout_centerHorizontal="true"
+					android:layout_marginBottom="20dp">
+
+					<at.markushi.ui.CircleButton
+						android:layout_width="50dip"
+						android:layout_height="50dip"
+						android:src="@drawable/ic_message"
+						android:layout_centerInParent="true"
+						app:cb_color="#FAFAFA"
+						app:cb_pressedRingWidth="3dip"
+						android:layout_columnWeight="1"/>
+
+					<at.markushi.ui.CircleButton
+						android:layout_width="50dip"
+						android:layout_height="50dip"
+						android:src="@drawable/ic_notification"
+						android:layout_centerInParent="true"
+						app:cb_color="#FAFAFA"
+						app:cb_pressedRingWidth="3dip"
+						android:layout_columnWeight="1"/>
+
+					<at.markushi.ui.CircleButton
+						android:layout_width="50dip"
+						android:layout_height="50dip"
+						android:src="@drawable/ic_logs"
+						android:layout_centerInParent="true"
+						app:cb_color="#FAFAFA"
+						app:cb_pressedRingWidth="3dip"
+						android:layout_columnWeight="1"/>
+
+				</GridLayout>
+
+				<mehdi.sakout.fancybuttons.FancyButton
+					android:id="@+id/profileBtn"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:paddingTop="15dp"
+					android:paddingBottom="15dp"
+					fancy:fb_textColor="#EEEEEE"
+					fancy:fb_defaultColor="#00B0FF"
+					fancy:fb_focusColor="#40C4FF"
+					android:layout_marginLeft="30dp"
+					android:layout_marginRight="30dp"
+					android:layout_below="@+id/buttonGrid"
+					android:layout_marginBottom="30dp"/>
+				
+				<GridLayout
+					android:id="@+id/dashboardGrid"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:rowCount="4"
+					android:columnCount="1"
+					android:gravity="center_horizontal|center_vertical"
+					android:numColumns="auto_fit"
+					android:stretchMode="columnWidth"
+					android:layout_below="@+id/profileBtn"
+					android:layout_centerHorizontal="true"
+					android:layout_marginBottom="20dp">
+				
+				</GridLayout>
+
+			</RelativeLayout>
+
+		</ScrollView>
+
+	</RelativeLayout>
+
+</RelativeLayout>
+

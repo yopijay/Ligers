@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:fancy="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/rounded_alertdialog">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#FF5CB85C"
+		android:gravity="center_vertical|center_horizontal"
+		android:paddingTop="30dp"
+		android:paddingBottom="30dp"
+		android:id="@+id/alertwelcomeLinearLayout1">
+
+		<ImageView
+			android:layout_width="90dp"
+			android:layout_height="90dp"
+			android:src="@drawable/ic_smile"/>
+
+	</LinearLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/alertwelcomeLinearLayout1"
+		android:paddingTop="30dp"
+		android:paddingBottom="10dp"
+		android:paddingLeft="35dp"
+		android:paddingRight="35dp">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Welcome!"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/alertTitle"
+			android:layout_marginBottom="30dp"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_below="@id/alertTitle"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/alertInfo"
+			android:textAlignment="center"
+			android:layout_marginBottom="30dp"/>
+
+		<mehdi.sakout.fancybuttons.FancyButton
+			android:id="@+id/okAlertBtn"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingTop="15dp"
+			android:paddingBottom="15dp"
+			fancy:fb_textColor="#EEEEEE"
+			fancy:fb_defaultColor="#FF5CB85C"
+			fancy:fb_focusColor="#FF5CB85C"
+			android:layout_below="@+id/alertInfo"/>
+
+	</RelativeLayout>
+
+</RelativeLayout>
+
