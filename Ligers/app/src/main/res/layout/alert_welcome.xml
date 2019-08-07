@@ -21,8 +21,8 @@
 				android:layout_height="wrap_content"
 				android:background="#FF5CB85C"
 				android:gravity="center_vertical|center_horizontal"
-				android:paddingTop="30dp"
-				android:paddingBottom="30dp"
+				android:paddingTop="25dp"
+				android:paddingBottom="25dp"
 				android:id="@+id/alertwelcomeLinearLayout1">
 
 				<ImageView
@@ -36,10 +36,10 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_below="@id/alertwelcomeLinearLayout1"
-				android:paddingTop="30dp"
+				android:paddingTop="25dp"
 				android:paddingBottom="10dp"
-				android:paddingLeft="35dp"
-				android:paddingRight="35dp">
+				android:paddingLeft="10dp"
+				android:paddingRight="10dp">
 
 				<TextView
 					android:layout_width="wrap_content"
@@ -60,6 +60,8 @@
 					android:layout_centerHorizontal="true"
 					android:id="@+id/alertInfo"
 					android:textAlignment="center"
+					android:layout_marginRight="10dp"
+					android:layout_marginLeft="10dp"
 					android:layout_marginBottom="30dp"/>
 
 				<mehdi.sakout.fancybuttons.FancyButton

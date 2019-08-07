@@ -75,7 +75,7 @@ public class AdminMainActivity extends Activity implements View.OnClickListener 
 		Typeface Gentona = Typeface.createFromAsset(getAssets(), "fonts/gentona.otf");
 		
 		
-		Dialog alertSuccess = new Dialog(AdminMainActivity.this);
+		final Dialog alertSuccess = new Dialog(AdminMainActivity.this);
 		alertSuccess.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
 		alertSuccess.setContentView(R.layout.alert_welcome);
@@ -87,38 +87,22 @@ public class AdminMainActivity extends Activity implements View.OnClickListener 
 		
 		alertMessage = (TextView) alertSuccess.findViewById(R.id.alertInfo);
 		alertMessage.setTypeface(CenturyGothic);
-		alertMessage.setTextSize(17);
+		alertMessage.setTextSize(15);
 		
 		okBtn = (FancyButton) alertSuccess.findViewById(R.id.okAlertBtn);
 		okBtn.setRadius(10);
 		okBtn.setText("OK");
 		okBtn.setCustomTextFont("Century Gothic.ttf");
 		okBtn.setTextSize(17);
+		okBtn.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				alertSuccess.dismiss();
+			}	
+		});
 		
 		alertSuccess.show();
-		/*AlertDialog.Builder alert = new AlertDialog.Builder(AdminMainActivity.this);
-		View alertView = getLayoutInflater().inflate(R.layout.alert_welcome, null);
-		
-		final Typeface CenturyGothic = Typeface.createFromAsset(getAssets(), "fonts/Century Gothic.ttf");
-		final Typeface Gentona = Typeface.createFromAsset(getAssets(), "fonts/gentona.otf");
-		
-		final TextView titleAlert = (TextView) alertView.findViewById(R.id.alertTitle);
-		titleAlert.setTypeface(CenturyGothic);
-		titleAlert.setTextSize(30);
-		
-		final TextView messageAlert = (TextView) alertView.findViewById(R.id.alertInfo);
-		messageAlert.setTypeface(CenturyGothic);
-		messageAlert.setTextSize(17);
-		
-		final FancyButton okAlert = (FancyButton) alertView.findViewById(R.id.okAlertBtn);
-		okAlert.setText("OK");
-		okAlert.setRadius(10);
-		okAlert.setCustomTextFont("Century Gothic.ttf");
-		okAlert.setTextSize(17);
-		
-		alertView.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-		alert.setView(alertView);
-		alert.create().show();*/
 	}
 	
 	public void onClick(View v) {
