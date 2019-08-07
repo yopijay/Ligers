@@ -15,20 +15,22 @@ import com.sdsmdg.tastytoast.TastyToast;
 import android.widget.Toast;
 import android.support.v7.app.AlertDialog;
 import at.markushi.ui.CircleButton;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.Color;
+import android.app.Dialog;
 
 public class AdminMainActivity extends Activity implements View.OnClickListener {
 	
 	//TextVuews
-	TextView fullname, type;
+	TextView fullname, type, alertTitle, alertMessage;
 	
 	//Buttons
-	FancyButton profile;
+	FancyButton profile, okBtn;
 	CircleButton message, notif, logs;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		//Fullscreen
 		//requestWindowFeature(Window.FEATURE_NO_TITLE);
 		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -36,7 +38,7 @@ public class AdminMainActivity extends Activity implements View.OnClickListener 
 		setContentView(R.layout.admin_main);
 		
 		alertPopup();
-		
+
 		//Fonts
 		Typeface CenturyGothic = Typeface.createFromAsset(getAssets(), "fonts/Century Gothic.ttf");
 		Typeface Gentona = Typeface.createFromAsset(getAssets(), "fonts/gentona.otf");
@@ -67,11 +69,56 @@ public class AdminMainActivity extends Activity implements View.OnClickListener 
 	}
 	
 	public void alertPopup() {
-		AlertDialog.Builder alert = new AlertDialog.Builder(AdminMainActivity.this);
+
+		//Fonts
+		Typeface CenturyGothic = Typeface.createFromAsset(getAssets(), "fonts/Century Gothic.ttf");
+		Typeface Gentona = Typeface.createFromAsset(getAssets(), "fonts/gentona.otf");
+		
+		
+		Dialog alertSuccess = new Dialog(AdminMainActivity.this);
+		alertSuccess.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		alertSuccess.setContentView(R.layout.alert_welcome);
+		alertSuccess.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+		
+		alertTitle = (TextView) alertSuccess.findViewById(R.id.alertTitle);
+		alertTitle.setTypeface(CenturyGothic);
+		alertTitle.setTextSize(25);
+		
+		alertMessage = (TextView) alertSuccess.findViewById(R.id.alertInfo);
+		alertMessage.setTypeface(CenturyGothic);
+		alertMessage.setTextSize(17);
+		
+		okBtn = (FancyButton) alertSuccess.findViewById(R.id.okAlertBtn);
+		okBtn.setRadius(10);
+		okBtn.setText("OK");
+		okBtn.setCustomTextFont("Century Gothic.ttf");
+		okBtn.setTextSize(17);
+		
+		alertSuccess.show();
+		/*AlertDialog.Builder alert = new AlertDialog.Builder(AdminMainActivity.this);
 		View alertView = getLayoutInflater().inflate(R.layout.alert_welcome, null);
 		
+		final Typeface CenturyGothic = Typeface.createFromAsset(getAssets(), "fonts/Century Gothic.ttf");
+		final Typeface Gentona = Typeface.createFromAsset(getAssets(), "fonts/gentona.otf");
+		
+		final TextView titleAlert = (TextView) alertView.findViewById(R.id.alertTitle);
+		titleAlert.setTypeface(CenturyGothic);
+		titleAlert.setTextSize(30);
+		
+		final TextView messageAlert = (TextView) alertView.findViewById(R.id.alertInfo);
+		messageAlert.setTypeface(CenturyGothic);
+		messageAlert.setTextSize(17);
+		
+		final FancyButton okAlert = (FancyButton) alertView.findViewById(R.id.okAlertBtn);
+		okAlert.setText("OK");
+		okAlert.setRadius(10);
+		okAlert.setCustomTextFont("Century Gothic.ttf");
+		okAlert.setTextSize(17);
+		
+		alertView.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 		alert.setView(alertView);
-		alert.create().show();
+		alert.create().show();*/
 	}
 	
 	public void onClick(View v) {
