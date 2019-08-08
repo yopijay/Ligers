@@ -108,7 +108,7 @@ public class AdminMainActivity extends Activity implements View.OnClickListener 
 	public void onClick(View v) {
 		switch(v.getId()) {
 			case R.id.profileBtn:
-				TastyToast.makeText(this, "Hi! Im Prpfile Button!", Toast.LENGTH_SHORT, TastyToast.INFO);
+				TastyToast.makeText(this, "Hi! Im Profile Button!", Toast.LENGTH_SHORT, TastyToast.INFO);
 			break;
 			
 			case R.id.messageBtn:

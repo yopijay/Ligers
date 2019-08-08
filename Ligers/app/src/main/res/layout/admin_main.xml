@@ -138,7 +138,7 @@
 					android:layout_marginRight="30dp"
 					android:layout_below="@+id/buttonGrid"
 					android:layout_marginBottom="30dp"/>
-				
+
 				<GridLayout
 					android:id="@+id/dashboardGrid"
 					android:layout_width="match_parent"
@@ -151,12 +151,21 @@
 					android:layout_below="@+id/profileBtn"
 					android:layout_centerHorizontal="true"
 					android:layout_marginBottom="20dp">
-				
+
 				</GridLayout>
 
 			</RelativeLayout>
 
 		</ScrollView>
+
+		<com.github.clans.fab.FloatingActionMenu
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentBottom="true"
+			android:layout_margin="20dp">
+			
+		</com.github.clans.fab.FloatingActionMenu>
 
 	</RelativeLayout>
 
