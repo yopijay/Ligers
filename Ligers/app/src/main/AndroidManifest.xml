@@ -21,7 +21,7 @@
 			android:name=".LoginActivity">
 		</activity>
 		<activity
-			android:name=".AdminMainActivity">
+			android:name=".AdminProfileActivity">
 		</activity>
     </application>
 

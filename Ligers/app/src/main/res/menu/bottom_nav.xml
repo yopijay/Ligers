@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"/>
+	
+	<item
+        android:id="@+id/members"
+        android:title="Members"/>
+
+	<item
+        android:id="@+id/dashboard"
+        android:title="Dashboard"/>
+
+	<item
+        android:id="@+id/attendance"
+        android:title="Attendance"/>
+
+	<item
+        android:id="@+id/funds"
+        android:title="Funds"/>
+    
+</menu>

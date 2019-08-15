@@ -2,6 +2,7 @@
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 		<item name="colorPrimary">#00B0FF</item>
-		<item name="colorPrimaryDark">#40C4FF</item>
+		<item name="colorPrimaryDark">#FFFFFF</item>
+		<item name="android:windowLightStatusBar">true</item>
 	</style>
 </resources>

@@ -19,7 +19,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.Color;
 import android.app.Dialog;
 
-public class AdminMainActivity extends Activity implements View.OnClickListener {
+public class AdminProfileActivity extends Activity implements View.OnClickListener {
 	
 	//TextVuews
 	TextView fullname, type, alertTitle, alertMessage;
@@ -35,7 +35,7 @@ public class AdminMainActivity extends Activity implements View.OnClickListener 
 		//requestWindowFeature(Window.FEATURE_NO_TITLE);
 		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
-		setContentView(R.layout.admin_main);
+		setContentView(R.layout.admin_profile);
 		
 		alertPopup();
 
@@ -75,7 +75,7 @@ public class AdminMainActivity extends Activity implements View.OnClickListener 
 		Typeface Gentona = Typeface.createFromAsset(getAssets(), "fonts/gentona.otf");
 		
 		
-		final Dialog alertSuccess = new Dialog(AdminMainActivity.this);
+		final Dialog alertSuccess = new Dialog(AdminProfileActivity.this);
 		alertSuccess.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
 		alertSuccess.setContentView(R.layout.alert_welcome);

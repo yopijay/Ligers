@@ -127,8 +127,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 				}
 				else {
 					//TastyToast.makeText(this, "YAHHHOOOOOOOO!", Toast.LENGTH_LONG, TastyToast.SUCCESS).setGravity(Gravity.TOP, 0, 0);
-					Intent admin = new Intent(LoginActivity.this, AdminMainActivity.class);
-					startActivity(admin);
+					Intent admin_profile = new Intent(LoginActivity.this, AdminProfileActivity.class);
+					startActivity(admin_profile);
 				}
 			break;
 			
