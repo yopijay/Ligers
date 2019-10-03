@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Ligers</string>
 
+    <!-- CARD VIEW TITLE -->
+    <string name="member_title">MEMBERS</string>
+    <string name="fund_title">FUNDS</string>
+    <string name="attendance_title">ATTENDANCE</string>
+
+    <!-- TEXT VIEW VALUE -->
+    <string name="total">0</string>
 </resources>
