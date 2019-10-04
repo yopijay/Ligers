@@ -13,25 +13,26 @@
             android:id="@+id/header_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DASHBOARD"
+            android:text="@string/dashboard_name"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="20sp"
             android:textColor="#656565"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentStart="true"/>
 
         <com.github.siyamed.shapeimageview.CircularImageView
             android:id="@+id/profileBtn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:onClick="onClick"
             android:src="@drawable/ligers_new"
             app:siBorderColor="#000000"
             app:siBorderWidth="1sp"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:focusable="true"/>
 
     </RelativeLayout>
 

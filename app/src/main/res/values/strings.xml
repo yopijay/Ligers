@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Ligers</string>
+    <string name="dashboard_name">DASHBOARD</string>
+    <string name="funds_name">FUNDS</string>
+    <string name="tryout_name">TRYOUTS</string>
+    <string name="members_name">MEMBERS</string>
+    <string name="attendance_name">ATTENDANCE</string>
 
     <!-- CARD VIEW TITLE -->
     <string name="member_title">MEMBERS</string>

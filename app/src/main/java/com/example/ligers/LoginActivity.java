@@ -50,34 +50,32 @@ public class LoginActivity extends Activity implements OnClickListener {
         setContentView(R.layout.login_form);
 
         //Fonts
-        //Typeface Funbold = Typeface.createFromAsset(getAssets(), "fonts/Funbold.ttf");
         Typeface CenturyGothic = Typeface.createFromAsset(getAssets(), "fonts/Century Gothic.ttf");
         Typeface Gentona = Typeface.createFromAsset(getAssets(), "fonts/gentona.otf");
-        //Typeface WickedMouse = Typeface.createFromAsset(getAssets(), "fonts/Wicked Mouse Demo.otf");
 
-        inputForms = (ViewGroup) findViewById(R.id.loginContainer);
-        buttonForms = (ViewGroup) findViewById(R.id.buttonContainer);
+        inputForms = findViewById(R.id.loginContainer);
+        buttonForms = findViewById(R.id.buttonContainer);
 
 
         //TextViews
-        titleLogin = (TextView) findViewById(R.id.loginTitle);
+        titleLogin = findViewById(R.id.loginTitle);
         titleLogin.setTypeface(Gentona);
 
-        snLbl = (TextView) findViewById(R.id.snLbl);
+        snLbl = findViewById(R.id.snLbl);
         snLbl.setTypeface(CenturyGothic);
 
-        passLbl = (TextView) findViewById(R.id.passLbl);
+        passLbl = findViewById(R.id.passLbl);
         passLbl.setTypeface(CenturyGothic);
 
         //EditTexts
-        sn = (EditText) findViewById(R.id.student_no);
+        sn =  findViewById(R.id.student_no);
         sn.setTypeface(CenturyGothic);
 
         pass = (EditText) findViewById(R.id.password);
         pass.setTypeface(CenturyGothic);
 
         //Buttons
-        nextBtn = (FancyButton) findViewById(R.id.nextBtn);
+        nextBtn = findViewById(R.id.nextBtn);
         nextBtn.setOnClickListener(this);
         nextBtn.setCustomTextFont("gentona.otf");
         nextBtn.setText("");
@@ -85,14 +83,14 @@ public class LoginActivity extends Activity implements OnClickListener {
         nextBtn.setFontIconSize(20);
         nextBtn.setRadius(10);
 
-        loginBtn = (FancyButton) findViewById(R.id.loginBtn);
+        loginBtn = findViewById(R.id.loginBtn);
         loginBtn.setOnClickListener(this);
         loginBtn.setText("LOGIN");
         loginBtn.setCustomTextFont("gentona.otf");
         loginBtn.setTextSize(20);
         loginBtn.setRadius(10);
 
-        backBtn = (FancyButton) findViewById(R.id.backBtn);
+        backBtn = findViewById(R.id.backBtn);
         backBtn.setOnClickListener(this);
         backBtn.setCustomTextFont("gentona.otf");
         backBtn.setText("");
@@ -127,7 +125,6 @@ public class LoginActivity extends Activity implements OnClickListener {
                     TastyToast.makeText(this, "Password is empty!", Toast.LENGTH_SHORT, TastyToast.ERROR).setGravity(Gravity.TOP, 0, 0);
                 }
                 else {
-                    //TastyToast.makeText(this, "YAHHHOOOOOOOO!", Toast.LENGTH_LONG, TastyToast.SUCCESS).setGravity(Gravity.TOP, 0, 0);
                     Intent admin_profile = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(admin_profile);
                 }

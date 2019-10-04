@@ -40,7 +40,7 @@ public class SplashActivity extends Activity {
 
         setContentView(R.layout.splash_form);
 
-        pBar = (ProgressBar) findViewById(R.id.progressBar);
+        pBar = findViewById(R.id.progressBar);
 
         //Customize progressbar
         pBar.getProgressDrawable().setColorFilter(Color.parseColor("#0091EA"), PorterDuff.Mode.SRC_IN);
@@ -78,7 +78,7 @@ public class SplashActivity extends Activity {
         }).start();
 
         //Image Slider
-        avf =(AdapterViewFlipper)findViewById(R.id.avfSlider);
+        avf = findViewById(R.id.avfSlider);
 
         CustomAdapter ca = new CustomAdapter(getApplicationContext(), IMAGE);
 

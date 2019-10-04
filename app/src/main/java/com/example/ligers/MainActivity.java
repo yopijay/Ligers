@@ -48,30 +48,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bottomnav = findViewById(R.id.bottom_nav);
         bottomnav.initWithSaveInstanceState(savedInstanceState);
-        bottomnav.addSpaceItem(new SpaceItem("MEMBER", R.drawable.ic_member));
+        bottomnav.addSpaceItem(new SpaceItem("DASHBOARD", R.drawable.ic_dashboard));
         bottomnav.addSpaceItem(new SpaceItem("FUNDS", R.drawable.ic_money));
+        bottomnav.addSpaceItem(new SpaceItem("MEMBERS", R.drawable.ic_member));
         bottomnav.addSpaceItem(new SpaceItem("ATTENDANCE", R.drawable.ic_attendance));
-        bottomnav.addSpaceItem(new SpaceItem("LOGS", R.drawable.ic_logs));
         bottomnav.showIconOnly();
 
         bottomnav.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
             public void onCentreButtonClick() {
-                TastyToast.makeText(MainActivity.this, "You click the Dashboard", Toast.LENGTH_SHORT, TastyToast.SUCCESS).setGravity(Gravity.TOP, 0, 0);
                 bottomnav.setCentreButtonSelectable(true);
                 bottomnav.setActiveCentreButtonBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.activeColor));
+                header_title.setText(R.string.tryout_name);
             }
 
             @Override
             public void onItemClick(int itemIndex, String itemName) {
-                TastyToast.makeText(MainActivity.this, "You click the " + itemName, Toast.LENGTH_SHORT, TastyToast.SUCCESS).setGravity(Gravity.TOP, 0, 0);
+                if(itemName.equals("DASHBOARD")) {
+                    header_title.setText(R.string.dashboard_name);
+                }
+                else if(itemName.equals("FUNDS")) {
+                    header_title.setText(R.string.funds_name);
+                }
+                else if(itemName.equals("TRYOUT")) {
+                    header_title.setText(R.string.tryout_name);
+                }
+                else if(itemName.equals("MEMBERS")) {
+                    header_title.setText(R.string.members_name);
+                }
+                else if(itemName.equals("ATTENDANCE")) {
+                    header_title.setText(R.string.attendance_name);
+                }
             }
 
             @Override
             public void onItemReselected(int itemIndex, String itemName) {
-                TastyToast.makeText(MainActivity.this, "You click again the " + itemName, Toast.LENGTH_SHORT, TastyToast.SUCCESS).setGravity(Gravity.TOP, 0, 0);
+                if(itemName.equals("DASHBOARD")) {
+                    header_title.setText(R.string.dashboard_name);
+                }
+                else if(itemName.equals("FUNDS")) {
+                    header_title.setText(R.string.funds_name);
+                }
+                else if(itemName.equals("TRYOUT")) {
+                    header_title.setText(R.string.tryout_name);
+                }
+                else if(itemName.equals("MEMBERS")) {
+                    header_title.setText(R.string.members_name);
+                }
+                else if(itemName.equals("ATTENDANCE")) {
+                    header_title.setText(R.string.attendance_name);
+                }
             }
         });
+
+
     }
 
     @Override

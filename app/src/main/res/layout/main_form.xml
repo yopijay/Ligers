@@ -199,7 +199,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                card_view:cardBackgroundColor="#FAFAFA"
+                card_view:cardBackgroundColor="#BDBDBD"
                 card_view:cardCornerRadius="5dp"
                 card_view:cardElevation="3dp">
 
@@ -218,7 +218,7 @@
         app:centre_button_color="@color/white"
         app:inactive_item_color="@color/inactiveColor"
         app:space_background_color="@color/white"
-        app:centre_button_icon="@drawable/ic_dashboard"
+        app:centre_button_icon="@drawable/icons_tryout"
         app:space_item_icon_size="40dp"
         app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
         app:space_item_text_size="@dimen/space_item_text_default_size" />
