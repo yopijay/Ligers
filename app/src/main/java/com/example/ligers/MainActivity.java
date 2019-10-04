@@ -1,5 +1,6 @@
 package com.example.ligers;
 
+import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
@@ -11,6 +12,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.github.siyamed.shapeimageview.CircularImageView;
+import com.luseen.spacenavigation.SpaceItem;
+import com.luseen.spacenavigation.SpaceNavigationView;
+import com.luseen.spacenavigation.SpaceOnClickListener;
 import com.sdsmdg.tastytoast.TastyToast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //Others
     CircularImageView profile_btn;
+    SpaceNavigationView bottomnav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.main_form);
 
         init();
+
+        bottomnav = findViewById(R.id.bottom_nav);
+        bottomnav.initWithSaveInstanceState(savedInstanceState);
+        bottomnav.addSpaceItem(new SpaceItem("", R.drawable.ic_member));
+        bottomnav.addSpaceItem(new SpaceItem("", R.drawable.ic_money));
+        bottomnav.addSpaceItem(new SpaceItem("", R.drawable.ic_attendance));
+        bottomnav.addSpaceItem(new SpaceItem("", R.drawable.ic_logs));
+
+        bottomnav.setSpaceOnClickListener(new SpaceOnClickListener() {
+            @Override
+            public void onCentreButtonClick() {
+                TastyToast.makeText(MainActivity.this, "You click the Dashboard", Toast.LENGTH_SHORT, TastyToast.SUCCESS).setGravity(Gravity.TOP, 0, 0);
+                bottomnav.setCentreButtonSelectable(true);
+            }
+
+            @Override
+            public void onItemClick(int itemIndex, String itemName) {
+                TastyToast.makeText(MainActivity.this, "You click the " + itemName, Toast.LENGTH_SHORT, TastyToast.SUCCESS).setGravity(Gravity.TOP, 0, 0);
+            }
+
+            @Override
+            public void onItemReselected(int itemIndex, String itemName) {
+                TastyToast.makeText(MainActivity.this, "You click again the " + itemName, Toast.LENGTH_SHORT, TastyToast.SUCCESS).setGravity(Gravity.TOP, 0, 0);
+            }
+        });
     }
 
     @Override

@@ -32,5 +32,5 @@ dependencies {
     implementation 'com.sdsmdg.tastytoast:tastytoast:0.1.1' //Toasts
     implementation 'com.github.clans:fab:1.6.4' //Floating Action Button
     implementation 'androidx.cardview:cardview:1.0.0' //Card view
-    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7' //Bottom Navigation
+    implementation 'com.github.armcha:SpaceNavigationView:1.6.0' //Bottom Navigation
 }
