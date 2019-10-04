@@ -4,6 +4,7 @@ import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -47,16 +48,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bottomnav = findViewById(R.id.bottom_nav);
         bottomnav.initWithSaveInstanceState(savedInstanceState);
-        bottomnav.addSpaceItem(new SpaceItem("", R.drawable.ic_member));
-        bottomnav.addSpaceItem(new SpaceItem("", R.drawable.ic_money));
-        bottomnav.addSpaceItem(new SpaceItem("", R.drawable.ic_attendance));
-        bottomnav.addSpaceItem(new SpaceItem("", R.drawable.ic_logs));
+        bottomnav.addSpaceItem(new SpaceItem("MEMBER", R.drawable.ic_member));
+        bottomnav.addSpaceItem(new SpaceItem("FUNDS", R.drawable.ic_money));
+        bottomnav.addSpaceItem(new SpaceItem("ATTENDANCE", R.drawable.ic_attendance));
+        bottomnav.addSpaceItem(new SpaceItem("LOGS", R.drawable.ic_logs));
+        bottomnav.showIconOnly();
 
         bottomnav.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
             public void onCentreButtonClick() {
                 TastyToast.makeText(MainActivity.this, "You click the Dashboard", Toast.LENGTH_SHORT, TastyToast.SUCCESS).setGravity(Gravity.TOP, 0, 0);
                 bottomnav.setCentreButtonSelectable(true);
+                bottomnav.setActiveCentreButtonBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.activeColor));
             }
 
             @Override
