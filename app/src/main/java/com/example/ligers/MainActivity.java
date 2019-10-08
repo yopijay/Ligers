@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -23,21 +24,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Toolbar toolbar;
 
     //TextViews
-    TextView header_title;
-    TextView title_member;
-    TextView member_count;
-    TextView title_funds;
-    TextView funds_count;
-    TextView title_attendance;
-
-    //CardView
-    CardView cv_members;
-    CardView cv_funds;
-    CardView cv_attendance;
+    public static TextView header_title;
 
     //Others
     CircularImageView profile_btn;
-    SpaceNavigationView bottomnav;
+    public static SpaceNavigationView bottomnav;
+    Fragment page;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.main_form);
 
         init();
+
+        page = new DashboardFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.pageContainer, page).commit();
 
         bottomnav = findViewById(R.id.bottom_nav);
         bottomnav.initWithSaveInstanceState(savedInstanceState);
@@ -60,47 +55,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 bottomnav.setCentreButtonSelectable(true);
                 bottomnav.setActiveCentreButtonBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.activeColor));
                 header_title.setText(R.string.tryout_name);
+                page = new TryoutFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.pageContainer, page).commit();
+
+
             }
 
             @Override
             public void onItemClick(int itemIndex, String itemName) {
                 if(itemName.equals("DASHBOARD")) {
-                    header_title.setText(R.string.dashboard_name);
+                    setPage(new DashboardFragment(), "DASHBOARD");
                 }
                 else if(itemName.equals("FUNDS")) {
-                    header_title.setText(R.string.funds_name);
-                }
-                else if(itemName.equals("TRYOUT")) {
-                    header_title.setText(R.string.tryout_name);
+                    setPage(new FundsFragment(), "FUNDS");
                 }
                 else if(itemName.equals("MEMBERS")) {
-                    header_title.setText(R.string.members_name);
+                    setPage(new MembersFragment(), "MEMBERS");
                 }
                 else if(itemName.equals("ATTENDANCE")) {
-                    header_title.setText(R.string.attendance_name);
+                    setPage(new AttendanceFragment(), "ATTENDANCE");
                 }
             }
 
             @Override
             public void onItemReselected(int itemIndex, String itemName) {
                 if(itemName.equals("DASHBOARD")) {
-                    header_title.setText(R.string.dashboard_name);
+                    setPage(new DashboardFragment(), "DASHBOARD");
                 }
                 else if(itemName.equals("FUNDS")) {
-                    header_title.setText(R.string.funds_name);
-                }
-                else if(itemName.equals("TRYOUT")) {
-                    header_title.setText(R.string.tryout_name);
+                    setPage(new FundsFragment(), "FUNDS");
                 }
                 else if(itemName.equals("MEMBERS")) {
-                    header_title.setText(R.string.members_name);
+                    setPage(new MembersFragment(), "MEMBERS");
                 }
                 else if(itemName.equals("ATTENDANCE")) {
-                    header_title.setText(R.string.attendance_name);
+                    setPage(new AttendanceFragment(), "ATTENDANCE");
                 }
             }
         });
-
 
     }
 
@@ -110,15 +102,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()) {
             case R.id.profileBtn:
                 message = "Profile";
-                break;
-            case R.id.cv_member:
-                message = "Members";
-                break;
-            case R.id.cv_funds:
-                message = "Funds";
-                break;
-            case R.id.cv_attendance:
-                message = "Attendance";
                 break;
         }
 
@@ -134,28 +117,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         header_title = findViewById(R.id.header_title);
         header_title.setTypeface(Gentona);
-
-        title_member = findViewById(R.id.title_members);
-        title_member.setTypeface(CenturyGothic);
-        title_funds = findViewById(R.id.title_funds);
-        title_funds.setTypeface(CenturyGothic);
-        title_attendance = findViewById(R.id.title_attendance);
-        title_attendance.setTypeface(CenturyGothic);
-
-        member_count = findViewById(R.id.count_members);
-        member_count.setTypeface(CenturyGothic);
-        funds_count = findViewById(R.id.count_funds);
-        funds_count.setTypeface(CenturyGothic);
-
-        //Clickable elements
+//
+//        //Clickable elements
         profile_btn = findViewById(R.id.profileBtn);
         profile_btn.setOnClickListener(this);
+    }
 
-        cv_members = findViewById(R.id.cv_member);
-        cv_members.setOnClickListener(this);
-        cv_funds = findViewById(R.id.cv_funds);
-        cv_funds.setOnClickListener(this);
-        cv_attendance = findViewById(R.id.cv_attendance);
-        cv_attendance.setOnClickListener(this);
+    void setPage (Fragment pf, String title) {
+        header_title.setText(title);
+        getSupportFragmentManager().beginTransaction().replace(R.id.pageContainer, pf).commit();
     }
 }
