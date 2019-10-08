@@ -3,6 +3,8 @@ package com.example.ligers;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Window;
 import android.view.View;
 import android.view.WindowManager;
@@ -70,6 +72,22 @@ public class LoginActivity extends Activity implements OnClickListener {
         //EditTexts
         sn =  findViewById(R.id.student_no);
         sn.setTypeface(CenturyGothic);
+        sn.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         pass = (EditText) findViewById(R.id.password);
         pass.setTypeface(CenturyGothic);
@@ -147,4 +165,5 @@ public class LoginActivity extends Activity implements OnClickListener {
                 break;
         }
     }
+
 }
