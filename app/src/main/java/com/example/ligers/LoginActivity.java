@@ -89,7 +89,7 @@ public class LoginActivity extends Activity implements OnClickListener {
             }
         });
 
-        pass = (EditText) findViewById(R.id.password);
+        pass = findViewById(R.id.password);
         pass.setTypeface(CenturyGothic);
 
         //Buttons

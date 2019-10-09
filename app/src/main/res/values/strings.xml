@@ -13,6 +13,8 @@
 
     <!-- TEXT VIEW VALUE -->
     <string name="total">0</string>
+    <string name="student_number">Student Number:</string>
+    <string name="course">Course:</string>
 
     <!-- Hints Value -->
     <string name="search_hint">Search..</string>
