@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Toolbar toolbar;
 
+
+    //Database Connections
+
     //TextViews
     public static TextView header_title;
 
@@ -115,8 +118,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         header_title = findViewById(R.id.header_title);
         header_title.setTypeface(Gentona);
-//
-//        //Clickable elements
+
+        //Clickable elements
         profile_btn = findViewById(R.id.profileBtn);
         profile_btn.setOnClickListener(this);
     }
