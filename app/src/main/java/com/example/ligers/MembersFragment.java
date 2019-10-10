@@ -39,6 +39,7 @@ public class MembersFragment extends Fragment {
     //Circle Buttons
     CircleButton addMember;
 
+
     //Edit Texts
     EditText searchTxtbox;
     EditText snTxtbox;
