@@ -22,12 +22,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.luseen.spacenavigation.CentreButton;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import at.markushi.ui.CircleButton;
@@ -68,6 +72,12 @@ public class MembersFragment extends Fragment {
     //Fancy Buttons
     FancyButton cancelBtn;
     FancyButton doneBtn;
+
+    //Database Reference
+    DatabaseReference reff;
+
+    //Tables
+    tbl_user user;
 
     @Nullable
     @Override
@@ -166,6 +176,25 @@ public class MembersFragment extends Fragment {
                         .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                             @Override
                             public void onClick(final SweetAlertDialog warningAlertDialog) {
+
+                                SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+                                String curDate = df.format(new Date());
+
+                                snTxtbox = add_member.findViewById(R.id.sn_txtBox);
+
+                                reff = FirebaseDatabase.getInstance().getReference().child("tbl_user");
+                                user = new tbl_user();
+
+                                user.setStudent_no(snTxtbox.getText().toString().trim());
+                                user.setPassword( "password");
+                                user.setUser_type("member");
+                                user.setStatus("student");
+                                user.setCreated_by(0);
+                                user.setModified_by(0);
+                                user.setDate_created(curDate);
+                                user.setDate_modified("0000-00-00");
+
+                                reff.push().setValue(user);
                                 new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
                                         .setTitleText("DONE!")
                                         .setContentText("Successfully Saved!")
@@ -228,7 +257,7 @@ public class MembersFragment extends Fragment {
     void designField(EditText field, Dialog form, Typeface font, int name, int size) {
         field = form.findViewById(name);
         field.setTypeface(font);
-        field.setTextSize(13);
+        field.setTextSize(size);
     }
 
     void designSpinner(MaterialSpinner field, Dialog form, Typeface font, int name, List<String>items) {

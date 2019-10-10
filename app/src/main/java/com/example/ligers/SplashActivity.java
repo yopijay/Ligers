@@ -17,6 +17,8 @@ import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.sdsmdg.tastytoast.TastyToast;
+
 public class SplashActivity extends Activity {
 
     ProgressBar pBar;
