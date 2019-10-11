@@ -9,7 +9,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class CustomMessage {
 
-    static SweetAlertDialog confirmMessage(final Context context, int type, String title, String content, String confirm, String cancel, final Dialog dialog, ) {
+    static SweetAlertDialog confirmMessage(final Context context, int type, String title, String content, String confirm, String cancel, final Dialog dialog) {
 
          return new SweetAlertDialog(context, type)
                 .setTitleText(title)
