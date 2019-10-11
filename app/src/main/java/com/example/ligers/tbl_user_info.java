@@ -2,7 +2,9 @@ package com.example.ligers;
 
 public class tbl_user_info {
 
+    private int id;
     private String student_no;
+    private int user_id;
     private String year_level;
     private String firstname;
     private String middlename;
@@ -23,38 +25,6 @@ public class tbl_user_info {
     private String date_created;
     private String date_modified;
 
-    public String getCreated_by() {
-        return created_by;
-    }
-
-    public void setCreated_by(String created_by) {
-        this.created_by = created_by;
-    }
-
-    public String getModified_by() {
-        return modified_by;
-    }
-
-    public void setModified_by(String modified_by) {
-        this.modified_by = modified_by;
-    }
-
-    public String getDate_created() {
-        return date_created;
-    }
-
-    public void setDate_created(String date_created) {
-        this.date_created = date_created;
-    }
-
-    public String getDate_modified() {
-        return date_modified;
-    }
-
-    public void setDate_modified(String date_modified) {
-        this.date_modified = date_modified;
-    }
-
     public tbl_user_info() {
 
     }
@@ -63,16 +33,24 @@ public class tbl_user_info {
         return student_no;
     }
 
+    public void setStudent_no(String student_no) {
+        this.student_no = student_no;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
     public String getYear_level() {
         return year_level;
     }
 
     public void setYear_level(String year_level) {
         this.year_level = year_level;
-    }
-
-    public void setStudent_no(String student_no) {
-        this.student_no = student_no;
     }
 
     public String getFirstname() {
@@ -185,5 +163,37 @@ public class tbl_user_info {
 
     public void setFather_contact(String father_contact) {
         this.father_contact = father_contact;
+    }
+
+    public String getCreated_by() {
+        return created_by;
+    }
+
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
+    }
+
+    public String getModified_by() {
+        return modified_by;
+    }
+
+    public void setModified_by(String modified_by) {
+        this.modified_by = modified_by;
+    }
+
+    public String getDate_created() {
+        return date_created;
+    }
+
+    public void setDate_created(String date_created) {
+        this.date_created = date_created;
+    }
+
+    public String getDate_modified() {
+        return date_modified;
+    }
+
+    public void setDate_modified(String date_modified) {
+        this.date_modified = date_modified;
     }
 }

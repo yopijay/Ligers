@@ -62,7 +62,6 @@ public class LoginActivity extends Activity implements OnClickListener {
         inputForms = findViewById(R.id.loginContainer);
         buttonForms = findViewById(R.id.buttonContainer);
 
-
         //TextViews
         titleLogin = findViewById(R.id.loginTitle);
         titleLogin.setTypeface(Gentona);
@@ -82,7 +81,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 
         //Buttons
         nextBtn = findViewById(R.id.nextBtn);
-        nextBtn.setOnClickListener(this);
+        nextBtn.setOnClickListener(LoginActivity.this);
         nextBtn.setCustomTextFont("gentona.otf");
         nextBtn.setText("");
         nextBtn.setIconResource("\uf105");
@@ -90,7 +89,7 @@ public class LoginActivity extends Activity implements OnClickListener {
         nextBtn.setRadius(10);
 
         loginBtn = findViewById(R.id.loginBtn);
-        loginBtn.setOnClickListener(this);
+        loginBtn.setOnClickListener(LoginActivity.this);
         loginBtn.setText("LOGIN");
         loginBtn.setCustomTextFont("gentona.otf");
         loginBtn.setTextSize(20);
@@ -110,7 +109,7 @@ public class LoginActivity extends Activity implements OnClickListener {
         switch(v.getId()) {
             case R.id.nextBtn:
                 if(sn.getText().toString().isEmpty()) {
-                    TastyToast.makeText(LoginActivity.this, "Student number is empty!", Toast.LENGTH_SHORT, TastyToast.ERROR).setGravity(Gravity.TOP, 0, 0);
+                    sn.setBackground(getResources().getDrawable(R.drawable.error_rounded_edittext));
                 }
                 else {
 
@@ -134,7 +133,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 
             case R.id.loginBtn:
                 if(pass.getText().toString().isEmpty()) {
-                    TastyToast.makeText(this, "Password is empty!", Toast.LENGTH_SHORT, TastyToast.ERROR).setGravity(Gravity.TOP, 0, 0);
+                    pass.setBackground(getResources().getDrawable(R.drawable.error_rounded_edittext));
                 }
                 else {
                     Intent admin_profile = new Intent(LoginActivity.this, MainActivity.class);
@@ -147,6 +146,9 @@ public class LoginActivity extends Activity implements OnClickListener {
                 TransitionManager.beginDelayedTransition(buttonForms);
                 sn.setText("");
                 pass.setText("");
+
+                sn.setBackground(getResources().getDrawable(R.drawable.rounded_edittext));
+                pass.setBackground(getResources().getDrawable(R.drawable.rounded_edittext));
 
                 snLbl.setVisibility(View.VISIBLE);
                 sn.setVisibility(View.VISIBLE);

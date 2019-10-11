@@ -1,6 +1,8 @@
 package com.example.ligers;
 
 public class tbl_user {
+
+    private int id;
     private String student_no;
     private String password;
     private String user_type;
@@ -12,6 +14,14 @@ public class tbl_user {
 
     public tbl_user() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getStudent_no() {

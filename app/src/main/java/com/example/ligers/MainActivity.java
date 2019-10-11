@@ -21,9 +21,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Toolbar toolbar;
 
-
-    //Database Connections
-
     //TextViews
     public static TextView header_title;
 
@@ -58,8 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 header_title.setText(R.string.tryout_name);
                 page = new TryoutFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.pageContainer, page).commit();
-
-
             }
 
             @Override
@@ -102,11 +97,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String message = "";
         switch(v.getId()) {
             case R.id.profileBtn:
-                message = "Profile";
+
                 break;
         }
-
-        TastyToast.makeText(MainActivity.this, message + " is Clicked!", Toast.LENGTH_SHORT, TastyToast.SUCCESS).setGravity(Gravity.TOP, 0, 0);
     }
 
     public void init() {
@@ -121,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Clickable elements
         profile_btn = findViewById(R.id.profileBtn);
-        profile_btn.setOnClickListener(this);
+        profile_btn.setOnClickListener(MainActivity.this);
     }
 
     void setPage (Fragment pf, String title) {
