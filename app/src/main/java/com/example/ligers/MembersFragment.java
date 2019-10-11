@@ -5,17 +5,15 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.text.Layout;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,12 +23,11 @@ import androidx.fragment.app.Fragment;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.luseen.spacenavigation.CentreButton;
 import com.sdsmdg.tastytoast.TastyToast;
 
-import org.w3c.dom.Text;
-
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -42,7 +39,6 @@ public class MembersFragment extends Fragment {
 
     //Circle Buttons
     CircleButton addMember;
-
 
     //Edit Texts
     EditText searchTxtbox;
@@ -74,11 +70,25 @@ public class MembersFragment extends Fragment {
     FancyButton doneBtn;
 
     //Database Reference
-    DatabaseReference reff;
+    DatabaseReference dr_user;
+    DatabaseReference dr_user_info;
+
 
     //Tables
     tbl_user user;
+    tbl_user_info user_info;
 
+    //Random String
+    private static final String CHAR_LOWER = "abcdefghijklmnopqrstuvwxyz";
+    private static final String CHAR_UPPER = CHAR_LOWER.toUpperCase();
+    private static final String NUMBER = "0123456789";
+
+    private static final String data = CHAR_LOWER + CHAR_UPPER + NUMBER;
+    private static SecureRandom random = new SecureRandom();
+
+    ViewGroup vg;
+
+    Dialog add_member;
     @Nullable
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -107,7 +117,7 @@ public class MembersFragment extends Fragment {
         Typeface CenturyGothic = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Century Gothic.ttf");
         Typeface Gentona = Typeface.createFromAsset(getActivity().getAssets(), "fonts/gentona.otf");
 
-        final Dialog add_member = new Dialog(getActivity());
+        add_member = new Dialog(getActivity());
         add_member.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         add_member.setContentView(R.layout.add_member);
@@ -170,55 +180,109 @@ public class MembersFragment extends Fragment {
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View done) {
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Are you sure you want to save this/these info?")
-                        .setConfirmText("Yes")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(final SweetAlertDialog warningAlertDialog) {
+                ErrorProvider error = new ErrorProvider();
 
-                                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                                String curDate = df.format(new Date());
+                error.setContext(MembersFragment.this, add_member, vg);
+                if(error.check()) {
+                    new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("Are you sure you want to save this/these info?")
+                            .setConfirmText("Yes")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(final SweetAlertDialog warningAlertDialog) {
 
-                                snTxtbox = add_member.findViewById(R.id.sn_txtBox);
+                                    //Date format
+                                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
-                                reff = FirebaseDatabase.getInstance().getReference().child("tbl_user");
-                                user = new tbl_user();
+                                    //Generate random string
+                                    StringBuilder sb = new StringBuilder();
 
-                                user.setStudent_no(snTxtbox.getText().toString().trim());
-                                user.setPassword( "password");
-                                user.setUser_type("member");
-                                user.setStatus("student");
-                                user.setCreated_by(0);
-                                user.setModified_by(0);
-                                user.setDate_created(curDate);
-                                user.setDate_modified("0000-00-00");
+                                    for (int i = 0; i < 8; i++) {
+                                        int rndomCharAt = random.nextInt(data.length());
+                                        char rndomChar = data.charAt(rndomCharAt);
 
-                                reff.child(snTxtbox.getText().toString()).setValue(user);
+                                        sb.append(rndomChar);
+                                    }
 
+                                    String curDate = df.format(new Date());
 
-                                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
-                                        .setTitleText("DONE!")
-                                        .setContentText("Successfully Saved!")
-                                        .setConfirmText("OK!")
-                                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                            @Override
-                                            public void onClick(SweetAlertDialog successAlertDialog) {
-                                                successAlertDialog.dismissWithAnimation();
-                                                warningAlertDialog.dismissWithAnimation();
-                                                add_member.dismiss();
-                                            }
-                                        })
-                                        .show();
-                            }
-                        })
-                        .setCancelButton("Wait!", new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                            }
-                        })
-                        .show();
+                                    snTxtbox = add_member.findViewById(R.id.sn_txtBox);
+                                    yearSpnr = add_member.findViewById(R.id.year_spnr);
+                                    fnTxtbox = add_member.findViewById(R.id.fn_txtBox);
+                                    mnTxtbox = add_member.findViewById(R.id.mn_txtBox);
+                                    lnTxtbox = add_member.findViewById(R.id.ln_txtBox);
+                                    contactTxtbox = add_member.findViewById(R.id.contact_txtBox);
+                                    emailTxtbox = add_member.findViewById(R.id.email_txtBox);
+                                    campusSpnr = add_member.findViewById(R.id.campus_spnr);
+                                    courseSpnr = add_member.findViewById(R.id.course_spnr);
+                                    motherFnTxtbox = add_member.findViewById(R.id.mother_fn_txtBox);
+                                    motherLnTxtbox = add_member.findViewById(R.id.mother_ln_txtBox);
+                                    motherContactTxtbox = add_member.findViewById(R.id.mother_contact_txtBox);
+                                    fatherFnTxtbox = add_member.findViewById(R.id.father_fn_txtBox);
+                                    fatherLnTxtbox = add_member.findViewById(R.id.father_ln_txtBox);
+                                    fatherContactTxtbox = add_member.findViewById(R.id.father_contact_txtBox);
+
+                                    dr_user = FirebaseDatabase.getInstance().getReference().child("tbl_user");
+                                    dr_user_info = FirebaseDatabase.getInstance().getReference().child("tbl_user_info");
+
+                                    user = new tbl_user();
+
+                                    user.setStudent_no(snTxtbox.getText().toString().trim());
+                                    user.setPassword(sb.toString());
+                                    user.setUser_type("member");
+                                    user.setStatus("student");
+                                    user.setCreated_by("14-0846");
+                                    user.setModified_by("00-0000");
+                                    user.setDate_created(curDate);
+                                    user.setDate_modified("0000-00-00");
+                                    dr_user.child(snTxtbox.getText().toString()).setValue(user);
+
+                                    user_info = new tbl_user_info();
+
+                                    user_info.setStudent_no(snTxtbox.getText().toString().trim());
+                                    user_info.setYear_level(yearSpnr.getText().toString().trim());
+                                    user_info.setFirstname(fnTxtbox.getText().toString().trim());
+                                    user_info.setMiddlename(mnTxtbox.getText().toString().trim());
+                                    user_info.setLastname(lnTxtbox.getText().toString().trim());
+                                    user_info.setContact_no(contactTxtbox.getText().toString().trim());
+                                    user_info.setEmail(emailTxtbox.getText().toString().trim());
+                                    user_info.setCampus(campusSpnr.getText().toString().trim());
+                                    user_info.setCourse(courseSpnr.getText().toString().trim());
+                                    user_info.setMother_fname(motherFnTxtbox.getText().toString().trim());
+                                    user_info.setMother_lname(motherLnTxtbox.getText().toString().trim());
+                                    user_info.setMother_contact(motherContactTxtbox.getText().toString().trim());
+                                    user_info.setFather_fname(fatherFnTxtbox.getText().toString().trim());
+                                    user_info.setFather_lname(fatherLnTxtbox.getText().toString().trim());
+                                    user_info.setFather_contact(fatherContactTxtbox.getText().toString().trim());
+                                    user_info.setCreated_by("14-0846");
+                                    user_info.setModified_by("00-0000");
+                                    user_info.setDate_created(curDate);
+                                    user_info.setDate_modified("0000-00-00");
+                                    dr_user_info.child(snTxtbox.getText().toString()).setValue(user_info);
+
+                                    new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+                                            .setTitleText("DONE!")
+                                            .setContentText("Successfully Saved!")
+                                            .setConfirmText("OK!")
+                                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                                @Override
+                                                public void onClick(SweetAlertDialog successAlertDialog) {
+                                                    successAlertDialog.dismissWithAnimation();
+                                                    warningAlertDialog.dismissWithAnimation();
+                                                    add_member.dismiss();
+                                                }
+                                            })
+                                            .show();
+                                }
+                            })
+                            .setCancelButton("Wait!", new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                    sweetAlertDialog.dismissWithAnimation();
+                                }
+                            })
+                            .show();
+                }
             }
         });
 

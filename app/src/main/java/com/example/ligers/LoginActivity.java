@@ -1,6 +1,8 @@
 package com.example.ligers;
 
 import android.app.Activity;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -11,6 +13,8 @@ import android.view.WindowManager;
 import android.graphics.Typeface;
 import android.widget.TextView;
 import android.widget.EditText;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import mehdi.sakout.fancybuttons.FancyButton;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
@@ -72,22 +76,6 @@ public class LoginActivity extends Activity implements OnClickListener {
         //EditTexts
         sn =  findViewById(R.id.student_no);
         sn.setTypeface(CenturyGothic);
-        sn.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
         pass = findViewById(R.id.password);
         pass.setTypeface(CenturyGothic);
@@ -125,16 +113,22 @@ public class LoginActivity extends Activity implements OnClickListener {
                     TastyToast.makeText(LoginActivity.this, "Student number is empty!", Toast.LENGTH_SHORT, TastyToast.ERROR).setGravity(Gravity.TOP, 0, 0);
                 }
                 else {
-                    TransitionManager.beginDelayedTransition(inputForms);
-                    TransitionManager.beginDelayedTransition(buttonForms);
-                    snLbl.setVisibility(View.INVISIBLE);
-                    sn.setVisibility(View.INVISIBLE);
-                    nextBtn.setVisibility(View.INVISIBLE);
 
-                    passLbl.setVisibility(View.VISIBLE);
-                    pass.setVisibility(View.VISIBLE);
-                    loginBtn.setVisibility(View.VISIBLE);
-                    backBtn.setVisibility(View.VISIBLE);
+                    if(haveNetwork()) {
+                        TransitionManager.beginDelayedTransition(inputForms);
+                        TransitionManager.beginDelayedTransition(buttonForms);
+                        snLbl.setVisibility(View.INVISIBLE);
+                        sn.setVisibility(View.INVISIBLE);
+                        nextBtn.setVisibility(View.INVISIBLE);
+
+                        passLbl.setVisibility(View.VISIBLE);
+                        pass.setVisibility(View.VISIBLE);
+                        loginBtn.setVisibility(View.VISIBLE);
+                        backBtn.setVisibility(View.VISIBLE);
+                    }
+                    else if(!haveNetwork()) {
+                        TastyToast.makeText(LoginActivity.this, "Please make sure you are connected to the internet!", TastyToast.LENGTH_LONG, TastyToast.WARNING);
+                    }
                 }
                 break;
 
@@ -166,4 +160,27 @@ public class LoginActivity extends Activity implements OnClickListener {
         }
     }
 
+    boolean haveNetwork() {
+        boolean WIFI = false;
+        boolean DATA = false;
+
+        ConnectivityManager connection = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo[] netInfo = connection.getAllNetworkInfo();
+
+        for(NetworkInfo net: netInfo) {
+            if(net.getTypeName().equalsIgnoreCase("WIFI")) {
+                if(net.isConnected()) {
+                    WIFI = true;
+                }
+            }
+
+            if(net.getTypeName().equalsIgnoreCase("MOBILE")) {
+                if(net.isConnected()) {
+                    DATA = true;
+                }
+            }
+        }
+
+        return WIFI || DATA;
+    }
 }

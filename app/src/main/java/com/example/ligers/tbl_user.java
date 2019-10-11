@@ -5,8 +5,8 @@ public class tbl_user {
     private String password;
     private String user_type;
     private String status;
-    private int created_by;
-    private int modified_by;
+    private String created_by;
+    private String modified_by;
     private String date_created;
     private String date_modified;
 
@@ -46,19 +46,19 @@ public class tbl_user {
         this.status = status;
     }
 
-    public int getCreated_by() {
+    public String getCreated_by() {
         return created_by;
     }
 
-    public void setCreated_by(int created_by) {
+    public void setCreated_by(String created_by) {
         this.created_by = created_by;
     }
 
-    public int getModified_by() {
+    public String getModified_by() {
         return modified_by;
     }
 
-    public void setModified_by(int modified_by) {
+    public void setModified_by(String modified_by) {
         this.modified_by = modified_by;
     }
 
