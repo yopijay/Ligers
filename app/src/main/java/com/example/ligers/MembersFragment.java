@@ -177,7 +177,7 @@ public class MembersFragment extends Fragment {
                             @Override
                             public void onClick(final SweetAlertDialog warningAlertDialog) {
 
-                                SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+                                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                                 String curDate = df.format(new Date());
 
                                 snTxtbox = add_member.findViewById(R.id.sn_txtBox);
@@ -194,7 +194,9 @@ public class MembersFragment extends Fragment {
                                 user.setDate_created(curDate);
                                 user.setDate_modified("0000-00-00");
 
-                                reff.push().setValue(user);
+                                reff.child(snTxtbox.getText().toString()).setValue(user);
+
+
                                 new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
                                         .setTitleText("DONE!")
                                         .setContentText("Successfully Saved!")
