@@ -44,7 +44,7 @@ import at.markushi.ui.CircleButton;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MembersFragment extends Fragment implements View.OnClickListener {
+public class MembersFragment extends Fragment implements View.OnClickListener, ValueEventListener {
 
     //Fonts
     public Typeface CenturyGothic;
@@ -137,7 +137,78 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
                 error.addException(R.id.father_contact_txtBox);
 
                 if(error.check()) {
-                  CustomMessage.confirmMessage(getActivity(), SweetAlertDialog.WARNING_TYPE, "DONE?", "Are you sure you want to save this form?", "YES!", "CANCEL!", add_member).show();
+                  CustomMessage.confirmMessage(getActivity(), SweetAlertDialog.WARNING_TYPE, "DONE?", "Are you sure you want to save this form?", "YES!", "CANCEL!", add_member)
+                          .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                              @Override
+                              public void onClick(final SweetAlertDialog exitAlertDialog) {
+                                  //Date format
+                                  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                                  //Generate random string
+                                  StringBuilder sb = new StringBuilder();
+
+                                  for(int i = 0; i < 8; i++) {
+                                      int randCharAt = random.nextInt(data.length());
+                                      char randChar = data.charAt(randCharAt);
+
+                                      sb.append(randChar);
+                                  }
+
+                                  dr_user = FirebaseDatabase.getInstance().getReference().child("tbl_user");
+                                  dr_user.addValueEventListener(MembersFragment.this);
+
+                                  tbl_user user = new tbl_user();
+                                  user.setId((int) user_id + 1);
+                                  user.setStudent_no(snTxtbox.getText().toString().trim());
+                                  user.setPassword(sb.toString());
+                                  user.setUser_type("member");
+                                  user.setStatus("student");
+                                  user.setCreated_by(0);
+                                  user.setModified_by(0);
+                                  user.setDate_created(String.valueOf(sdf.format(new Date())));
+                                  user.setDate_modified("0000-00-00");
+                                  dr_user.child(String.valueOf(user_id + 1)).setValue(user);
+
+                                  tbl_user_info user_info = new tbl_user_info();
+                                  user_info.setId((int) user_info_id + 1);
+                                  user_info.setUser_id((int) user_id + 1);
+                                  user_info.setFirstname(fnTxtbox.getText().toString().trim());
+                                  user_info.setMiddlename(mnTxtbox.getText().toString().trim());
+                                  user_info.setLastname(lnTxtbox.getText().toString().trim());
+                                  user_info.setContact_no(contactTxtbox.getText().toString().trim());
+                                  user_info.setEmail(emailTxtbox.getText().toString().trim());
+                                  user_info.setAddress(addressTxtbox.getText().toString().trim());
+                                  user_info.setYear_level(yearSpnr.getText().toString().trim());
+                                  user_info.setCampus(campusSpnr.getText().toString().trim());
+                                  user_info.setCourse(courseSpnr.getText().toString().trim());
+                                  user_info.setMother_fname(motherFnTxtbox.getText().toString().trim());
+                                  user_info.setMother_lname(motherLnTxtbox.getText().toString().trim());
+                                  user_info.setMother_contact(motherContactTxtbox.getText().toString().trim());
+                                  user_info.setFather_fname(fatherFnTxtbox.getText().toString().trim());
+                                  user_info.setFather_lname(fatherLnTxtbox.getText().toString().trim());
+                                  user_info.setFather_contact(fatherContactTxtbox.getText().toString().trim());
+                                  user_info.setCreated_by(0);
+                                  user_info.setModified_by(0);
+                                  user_info.setDate_created(String.valueOf(sdf.format(new Date())));
+                                  user_info.setDate_modified("0000-00-00");
+                                  dr_user_info.child(String.valueOf(user_info_id + 1)).setValue(user_info);
+
+
+                                  new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+                                          .setTitleText("SAVED!")
+                                          .setContentText("Credentials successfully saved!")
+                                          .setConfirmText("DONE!")
+                                          .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                              @Override
+                                              public void onClick(SweetAlertDialog successAlertDialog) {
+                                                  successAlertDialog.dismissWithAnimation();
+                                                  exitAlertDialog.dismissWithAnimation();
+                                                  add_member.dismiss();
+                                              }
+                                          })
+                                          .show();
+                              }
+                          })
+                          .show();
                 }
                 break;
 
@@ -253,5 +324,16 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
         }
 
         return field;
+    }
+
+    @Override
+    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        user_id = (dataSnapshot.getChildrenCount());
+        user_info_id = (dataSnapshot.getChildrenCount());
+    }
+
+    @Override
+    public void onCancelled(@NonNull DatabaseError databaseError) {
+
     }
 }

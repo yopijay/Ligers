@@ -50,7 +50,7 @@ public class DashboardFragment extends Fragment {
 
             @Override
             public void onClick(View dashboard) {
-                pageFragment(new MembersFragment(), "MEMBERS");
+                pageFragment(new MembersFragment(), "MEMBERS", 2);
             }
         });
 
@@ -64,7 +64,7 @@ public class DashboardFragment extends Fragment {
         cv_funds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View dashboard) {
-                pageFragment(new FundsFragment(), "FUNDS");
+                pageFragment(new FundsFragment(), "FUNDS", 1);
             }
         });
 
@@ -76,7 +76,7 @@ public class DashboardFragment extends Fragment {
 
             @Override
             public void onClick(View dashboard) {
-                pageFragment(new AttendanceFragment(), "ATTENDANCE");
+                pageFragment(new AttendanceFragment(), "ATTENDANCE", 3);
 //                TastyToast.makeText(getActivity(), header_title.getText().toString(), TastyToast.LENGTH_SHORT, TastyToast.CONFUSING);
             }
         });
@@ -84,13 +84,14 @@ public class DashboardFragment extends Fragment {
         return dashboard;
     }
 
-    void pageFragment(Fragment pf, String title) {
+    void pageFragment(Fragment pf, String title, int index) {
         MainActivity.header_title.setText(title);
 
         FragmentTransaction page = getFragmentManager().beginTransaction();
         page.replace(R.id.pageContainer, pf);
         page.addToBackStack(null);
 
+        MainActivity.bottomnav.changeCurrentItem(index);
         page.commit();
     }
 }

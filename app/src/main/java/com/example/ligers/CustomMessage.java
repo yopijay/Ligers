@@ -3,8 +3,6 @@ package com.example.ligers;
 import android.app.Dialog;
 import android.content.Context;
 
-import java.util.EventListener;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class CustomMessage {
@@ -15,13 +13,6 @@ public class CustomMessage {
                 .setTitleText(title)
                 .setContentText(content)
                 .setConfirmText(confirm)
-                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(final SweetAlertDialog exitAlertDialog) {
-                        exitAlertDialog.dismissWithAnimation();
-                        dialog.dismiss();
-                    }
-                })
                 .setCancelButton(cancel, new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog closeAlertDialog) {

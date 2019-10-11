@@ -3,6 +3,7 @@ package com.example.ligers;
 public class tbl_user_info {
 
     private int id;
+
     private String student_no;
     private int user_id;
     private String year_level;
@@ -20,13 +21,21 @@ public class tbl_user_info {
     private String father_fname;
     private String father_lname;
     private String father_contact;
-    private String created_by;
-    private String modified_by;
+    private int created_by;
+    private int modified_by;
     private String date_created;
     private String date_modified;
 
     public tbl_user_info() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getStudent_no() {
@@ -165,19 +174,19 @@ public class tbl_user_info {
         this.father_contact = father_contact;
     }
 
-    public String getCreated_by() {
+    public int getCreated_by() {
         return created_by;
     }
 
-    public void setCreated_by(String created_by) {
+    public void setCreated_by(int created_by) {
         this.created_by = created_by;
     }
 
-    public String getModified_by() {
+    public int getModified_by() {
         return modified_by;
     }
 
-    public void setModified_by(String modified_by) {
+    public void setModified_by(int modified_by) {
         this.modified_by = modified_by;
     }
 
