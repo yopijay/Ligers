@@ -137,12 +137,12 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
                 error.addException(R.id.father_contact_txtBox);
 
                 if(error.check()) {
-                    confirmMessage(getActivity(), SweetAlertDialog.WARNING_TYPE, "DONE!", "Are you sure you want to save this form?", "YES!", "CANCEL!", add_member, "YES").show();
+                  CustomMessage.confirmMessage(getActivity(), SweetAlertDialog.WARNING_TYPE, "DONE?", "Are you sure you want to save this form?", "YES!", "CANCEL!", add_member).show();
                 }
                 break;
 
             case R.id.cancel_btn:
-                confirmMessage(getActivity(), SweetAlertDialog.WARNING_TYPE, "EXIT", "Are you sure you want to exit this form?", "YES!", "NO!", add_member, "NO").show();
+                CustomMessage.confirmMessage(getActivity(), SweetAlertDialog.WARNING_TYPE, "EXIT?", "Are you sure you want to exit this form?", "YES!", "NO!", add_member).show();
                 break;
         }
     }
@@ -253,43 +253,5 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
         }
 
         return field;
-    }
-
-    SweetAlertDialog confirmMessage(final Context context, int type, String title, String content, String confirm, String cancel, final Dialog dialog, final String result) {
-        return new SweetAlertDialog(context, type)
-                .setTitleText(title)
-                .setContentText(content)
-                .setConfirmText(confirm)
-                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(final SweetAlertDialog exitAlertDialog) {
-
-                        if(result == "YES") {
-                            new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
-                                    .setTitleText("SAVED!")
-                                    .setContentText("Credentials Successfully Saved!")
-                                    .setConfirmText("DONE!")
-                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                        @Override
-                                        public void onClick(SweetAlertDialog successAlertDialog) {
-                                            exitAlertDialog.dismissWithAnimation();
-                                            successAlertDialog.dismissWithAnimation();
-                                            dialog.dismiss();
-                                        }
-                                    })
-                                    .show();
-                        }
-                        else if(result == "NO") {
-                            exitAlertDialog.dismissWithAnimation();
-                            dialog.dismiss();
-                        }
-                    }
-                })
-                .setCancelButton(cancel, new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog closeAlertDialog) {
-                        closeAlertDialog.dismissWithAnimation();
-                    }
-                });
     }
 }
