@@ -63,7 +63,7 @@ public class ErrorProvider  {
                 edittext.addTextChangedListener(setTextChangedEvent(edittext));
                 views.add(edittext);
                 for(int id : viewExceptions)
-                    if(view.getId() == id)
+                    if(view.getId() == id || viewGroup.getId() == id)
                         views.remove(edittext);
             }
         }
