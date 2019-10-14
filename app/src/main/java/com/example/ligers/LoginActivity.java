@@ -48,7 +48,6 @@ public class LoginActivity extends Activity implements OnClickListener {
 
         setContentView(R.layout.login_form);
 
-
         //Fonts
         Typeface CenturyGothic = Typeface.createFromAsset(getAssets(), "fonts/Century Gothic.ttf");
         Typeface Gentona = Typeface.createFromAsset(getAssets(), "fonts/gentona.otf");
