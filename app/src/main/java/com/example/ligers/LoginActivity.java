@@ -1,30 +1,23 @@
 package com.example.ligers;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.Window;
-import android.view.View;
-import android.view.WindowManager;
-import android.graphics.Typeface;
-import android.widget.TextView;
-import android.widget.EditText;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
-import mehdi.sakout.fancybuttons.FancyButton;
-import android.widget.Toast;
-import android.view.View.OnClickListener;
-import com.sdsmdg.tastytoast.TastyToast;
 import android.transition.TransitionManager;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.content.Intent;
-import android.view.Gravity;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.TextView;
 
-import androidx.annotation.Nullable;
+import com.sdsmdg.tastytoast.TastyToast;
+
+import mehdi.sakout.fancybuttons.FancyButton;
 
 public class LoginActivity extends Activity implements OnClickListener {
 
@@ -54,6 +47,7 @@ public class LoginActivity extends Activity implements OnClickListener {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.login_form);
+
 
         //Fonts
         Typeface CenturyGothic = Typeface.createFromAsset(getAssets(), "fonts/Century Gothic.ttf");

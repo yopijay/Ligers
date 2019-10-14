@@ -1,24 +1,23 @@
 package com.example.ligers;
 
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import android.graphics.Typeface;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 import com.github.siyamed.shapeimageview.CircularImageView;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
-import com.sdsmdg.tastytoast.TastyToast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    //Toolbar
     private Toolbar toolbar;
 
     //TextViews

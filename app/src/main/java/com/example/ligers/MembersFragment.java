@@ -1,15 +1,10 @@
 package com.example.ligers;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.renderscript.Sampler;
-import android.renderscript.Type;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,20 +18,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.firebase.FirebaseApiNotAvailableException;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.sdsmdg.tastytoast.TastyToast;
-
-import org.w3c.dom.Text;
 
 import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -237,7 +227,15 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.cancel_btn:
-                CustomMessage.confirmMessage(getActivity(), SweetAlertDialog.WARNING_TYPE, "EXIT?", "Are you sure you want to exit this form?", "YES!", "NO!", add_member).show();
+                CustomMessage.confirmMessage(getActivity(), SweetAlertDialog.WARNING_TYPE, "EXIT?", "Are you sure you want to exit this form?", "YES!", "NO!", add_member)
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog closeAlertDialog) {
+                                closeAlertDialog.dismissWithAnimation();
+                                add_member.dismiss();
+                            }
+                        })
+                        .show();
                 break;
         }
     }
