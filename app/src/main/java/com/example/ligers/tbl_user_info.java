@@ -3,9 +3,8 @@ package com.example.ligers;
 public class tbl_user_info {
 
     private int id;
-
-    private String student_no;
     private int user_id;
+    private String student_no;
     private String year_level;
     private String firstname;
     private String middlename;
@@ -38,20 +37,20 @@ public class tbl_user_info {
         this.id = id;
     }
 
-    public String getStudent_no() {
-        return student_no;
-    }
-
-    public void setStudent_no(String student_no) {
-        this.student_no = student_no;
-    }
-
     public int getUser_id() {
         return user_id;
     }
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
+    }
+
+    public String getStudent_no() {
+        return student_no;
+    }
+
+    public void setStudent_no(String student_no) {
+        this.student_no = student_no;
     }
 
     public String getYear_level() {

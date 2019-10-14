@@ -23,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.FirebaseApiNotAvailableException;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +45,7 @@ import at.markushi.ui.CircleButton;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import mehdi.sakout.fancybuttons.FancyButton;
 
-public class MembersFragment extends Fragment implements View.OnClickListener, ValueEventListener {
+public class MembersFragment extends Fragment implements View.OnClickListener {
 
     //Fonts
     public Typeface CenturyGothic;
@@ -154,32 +155,56 @@ public class MembersFragment extends Fragment implements View.OnClickListener, V
                                   }
 
                                   dr_user = FirebaseDatabase.getInstance().getReference().child("tbl_user");
-                                  dr_user.addValueEventListener(MembersFragment.this);
+                                  dr_user_info = FirebaseDatabase.getInstance().getReference().child("tbl_user_info");
 
-                                  tbl_user user = new tbl_user();
+                                  dr_user.addValueEventListener(new ValueEventListener() {
+                                      @Override
+                                      public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                          user_id = (dataSnapshot.getChildrenCount());
+                                      }
+
+                                      @Override
+                                      public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                      }
+                                  });
+
+                                  dr_user_info.addValueEventListener(new ValueEventListener() {
+                                      @Override
+                                      public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                          user_info_id = (dataSnapshot.getChildrenCount());
+                                      }
+
+                                      @Override
+                                      public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                      }
+                                  });
+
+                                  user = new tbl_user();
                                   user.setId((int) user_id + 1);
                                   user.setStudent_no(snTxtbox.getText().toString().trim());
                                   user.setPassword(sb.toString());
-                                  user.setUser_type("member");
                                   user.setStatus("student");
+                                  user.setUser_type("member");
                                   user.setCreated_by(0);
                                   user.setModified_by(0);
-                                  user.setDate_created(String.valueOf(sdf.format(new Date())));
+                                  user.setDate_created(sdf.format(new Date()));
                                   user.setDate_modified("0000-00-00");
                                   dr_user.child(String.valueOf(user_id + 1)).setValue(user);
 
-                                  tbl_user_info user_info = new tbl_user_info();
+                                  user_info = new tbl_user_info();
                                   user_info.setId((int) user_info_id + 1);
                                   user_info.setUser_id((int) user_id + 1);
                                   user_info.setFirstname(fnTxtbox.getText().toString().trim());
                                   user_info.setMiddlename(mnTxtbox.getText().toString().trim());
                                   user_info.setLastname(lnTxtbox.getText().toString().trim());
+                                  user_info.setYear_level(yearSpnr.getText().toString());
                                   user_info.setContact_no(contactTxtbox.getText().toString().trim());
                                   user_info.setEmail(emailTxtbox.getText().toString().trim());
                                   user_info.setAddress(addressTxtbox.getText().toString().trim());
-                                  user_info.setYear_level(yearSpnr.getText().toString().trim());
-                                  user_info.setCampus(campusSpnr.getText().toString().trim());
-                                  user_info.setCourse(courseSpnr.getText().toString().trim());
+                                  user_info.setCampus(campusSpnr.getText().toString());
+                                  user_info.setCourse(courseSpnr.getText().toString());
                                   user_info.setMother_fname(motherFnTxtbox.getText().toString().trim());
                                   user_info.setMother_lname(motherLnTxtbox.getText().toString().trim());
                                   user_info.setMother_contact(motherContactTxtbox.getText().toString().trim());
@@ -188,10 +213,9 @@ public class MembersFragment extends Fragment implements View.OnClickListener, V
                                   user_info.setFather_contact(fatherContactTxtbox.getText().toString().trim());
                                   user_info.setCreated_by(0);
                                   user_info.setModified_by(0);
-                                  user_info.setDate_created(String.valueOf(sdf.format(new Date())));
+                                  user_info.setDate_created(sdf.format(new Date()));
                                   user_info.setDate_modified("0000-00-00");
                                   dr_user_info.child(String.valueOf(user_info_id + 1)).setValue(user_info);
-
 
                                   new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
                                           .setTitleText("SAVED!")
@@ -279,9 +303,9 @@ public class MembersFragment extends Fragment implements View.OnClickListener, V
         designField(dialog, family_background, R.id.family_background_title, 15, Gentona);
 
         //Spinners
-        designSpinner(dialog, yearSpnr, R.id.year_spnr, 12, CenturyGothic, Arrays.asList("-", "1ST", "2ND", "3RD", "4TH"));
-        designSpinner(dialog, campusSpnr, R.id.campus_spnr, 12, CenturyGothic, Arrays.asList("-", "San Bartolome Campus", "San Francisco Campus", "Batasan Campus"));
-        designSpinner(dialog, courseSpnr, R.id.course_spnr, 12, CenturyGothic, Arrays.asList("-", "BSIT", "BSEntrep", "BSIE", "BSEcE", "BSA"));
+        yearSpnr = (MaterialSpinner) designSpinner(dialog, yearSpnr, R.id.year_spnr, 12, CenturyGothic, Arrays.asList("-", "1ST", "2ND", "3RD", "4TH"));
+        campusSpnr = (MaterialSpinner) designSpinner(dialog, campusSpnr, R.id.campus_spnr, 12, CenturyGothic, Arrays.asList("-", "San Bartolome Campus", "San Francisco Campus", "Batasan Campus"));
+        courseSpnr = (MaterialSpinner) designSpinner(dialog, courseSpnr, R.id.course_spnr, 12, CenturyGothic, Arrays.asList("-", "BSIT", "BSEntrep", "BSIE", "BSEcE", "BSA"));
 
         //Buttons
         designButton(dialog, doneBtn, R.id.done_btn, 15, "gentona.otf", "DONE", 10);
@@ -324,16 +348,5 @@ public class MembersFragment extends Fragment implements View.OnClickListener, V
         }
 
         return field;
-    }
-
-    @Override
-    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        user_id = (dataSnapshot.getChildrenCount());
-        user_info_id = (dataSnapshot.getChildrenCount());
-    }
-
-    @Override
-    public void onCancelled(@NonNull DatabaseError databaseError) {
-
     }
 }
