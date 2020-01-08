@@ -5,6 +5,8 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="colorText">#757575</color>
+    <color name="colorTextLight">#868686</color>
+    <color name="colorTextDark">#666666</color>
     <color name="colorLightBackground">#F4EEEB</color>
     <color name="colorBackground">#FAFAFA</color>
     <color name="colorDivider">#EEEEEE</color>

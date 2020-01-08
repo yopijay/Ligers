@@ -1,6 +1,5 @@
 package pijay.dev.ligers._modules;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -22,7 +21,7 @@ import pijay.dev.ligers._class.CustomFont;
 import pijay.dev.ligers._fragments.AttendanceFragment;
 import pijay.dev.ligers._fragments.FundsFragment;
 import pijay.dev.ligers._fragments.MembersFragment;
-import pijay.dev.ligers._fragments.MoreFragment;
+import pijay.dev.ligers._fragments.OthersFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     getSupportFragmentManager().beginTransaction().replace(R.id.pageContainer, page).commit();
                 }
                 else if(itemName.equals("MORE")) {
-                    page = new MoreFragment();
+                    page = new OthersFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.pageContainer, page).commit();
                 }
             }
@@ -95,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     getSupportFragmentManager().beginTransaction().replace(R.id.pageContainer, page).commit();
                 }
                 else if(itemName.equals("MORE")) {
-                    page = new MoreFragment();
+                    page = new OthersFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.pageContainer, page).commit();
                 }
             }
