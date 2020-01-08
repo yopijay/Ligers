@@ -10,6 +10,7 @@
     <string name="login_btn">LOGIN</string>
 
     <!-- Bottom Navigation -->
+    <string name="dashboard_txt">Dashboard</string>
     <string name="other_txt">Other...</string>
     <string name="funds_txt">Funds</string>
     <string name="attendance_txt">Attendance</string>

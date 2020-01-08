@@ -46,7 +46,7 @@ dependencies {
     implementation 'com.alespero:expandable-cardview:0.8' //Expandable Cardview
     implementation 'com.airbnb.android:lottie:3.3.1' //Lottie
     implementation 'ru.egslava:MaskedEditText:1.0.5' //Mask EditText
-    implementation 'com.github.armcha:SpaceNavigationView:1.6.0' //Bottom Navigation'
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.6' //Bottom Navigation'
     implementation 'com.sdsmdg.tastytoast:tastytoast:0.1.1' //Toast
     implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar' //ImageShapes
 }

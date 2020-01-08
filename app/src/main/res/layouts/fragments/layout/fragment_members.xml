@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/other_title_txt"
+            android:id="@+id/member_title_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/members_txt"
@@ -26,4 +26,4 @@
 
     </LinearLayout>
 
-</ScrollView>
+</RelativeLayout>

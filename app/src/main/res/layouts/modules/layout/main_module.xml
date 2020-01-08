@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:smb="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground">
@@ -23,20 +23,13 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/header_divider"/>
 
-    <com.luseen.spacenavigation.SpaceNavigationView
-        android:id="@+id/bottom_nav"
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        app:active_item_color="@color/colorPrimary"
-        app:centre_button_color="@color/colorPrimary"
-        app:active_centre_button_background_color="@color/colorPrimary"
-        app:inactive_centre_button_icon_color="@color/colorPrimaryDark"
-        app:centre_button_icon="@drawable/add_icon"
-        app:inactive_item_color="@color/colorText"
-        app:space_background_color="@color/colorPrimaryDark"
-        app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
-        app:space_item_icon_size="40dp"
-        app:space_item_text_size="@dimen/space_item_text_default_size"/>
+        smb:backgroundColor="@color/colorPrimary"
+        smb:iconSize="25dp"
+        smb:menu="@menu/bottom_nav"/>
 
 </RelativeLayout>
