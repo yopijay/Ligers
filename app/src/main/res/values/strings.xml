@@ -1,34 +1,43 @@
 <resources>
     <string name="app_name">Ligers</string>
-    <string name="dashboard_name">DASHBOARD</string>
-    <string name="funds_name">FUNDS</string>
-    <string name="tryout_name">TRYOUTS</string>
-    <string name="members_name">MEMBERS</string>
-    <string name="attendance_name">ATTENDANCE</string>
 
-    <!-- CARD VIEW TITLE -->
-    <string name="member_title">MEMBERS</string>
-    <string name="fund_title">FUNDS</string>
-    <string name="attendance_title">ATTENDANCE</string>
+    <!-- Login Page -->
+    <string name="sn_txt">Student No.:</string>
+    <string name="sn_hint">000000</string>
+    <string name="password_txt">Password:</string>
+    <string name="password_hint">Minimum of 6 characters</string>
 
-    <!-- TEXT VIEW VALUE -->
-    <string name="total">0</string>
+    <string name="login_btn">LOGIN</string>
 
-    <!-- HINT VALUES -->
-    <string name="search_hint">Search..</string>
-    <string name="email_hint">sample@yahoo.com</string>
-    <string name="student_number">Student Number</string>
-    <string name="course">Course</string>
-    <string name="fname">First Name</string>
-    <string name="mname">Middle Name</string>
-    <string name="lname">Last Name</string>
-    <string name="email">Email Address</string>
-    <string name="contact_no">Contact No.</string>
-    <string name="address">Address</string>
-    <string name="mother_fname">Mother`s First Name</string>
-    <string name="mother_lname">Mother`s Last Name</string>
-    <string name="mother_contact">Contact No.</string>
-    <string name="father_fname">Father`s First Name</string>
-    <string name="father_lname">Father`s Last Name</string>
-    <string name="father_contact">Contact No.</string>
+    <!-- Bottom Navigation -->
+    <string name="dashboard_txt">Dashboard</string>
+    <string name="funds_txt">Funds</string>
+    <string name="attendance_txt">Attendance</string>
+    <string name="members_txt">Members</string>
+
+    <!-- OTP -->
+    <string name="otp_code_hint">------</string>
+    <string name="otp_resend_link">Resend OTP code?</string>
+    <string name="otp_btn">CONFIRM</string>
+
+    <!-- Others -->
+    <string name="creator_txt">Developed by Paul John Judan</string>
+    <string name="otp_txt">We will send you a One Time Password on your phone number after you hit the LOGIN button</string>
+    <string name="otp_detail_txt">You will get a OTP via SMS</string>
+    <string name="status_txt">Status</string>
+
+    <!-- Date Picker -->
+    <string name="month_txt">Month</string>
+    <string name="day_txt">Day</string>
+    <string name="year_txt">Year</string>
+    <string name="month_value">00</string>
+    <string name="day_value">00</string>
+    <string name="year_value">0000</string>
+    <string name="present_txt">Present</string>
+    <string name="absent_txt">Absent</string>
+    <string name="late_txt">Late</string>
+    <string name="present_value">00</string>
+    <string name="absent_value">00</string>
+    <string name="late_value">00</string>
+    <string name="summary_txt">Summary</string>
 </resources>

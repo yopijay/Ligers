@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    <item-->
+<!--        android:id="@+id/dashboard"-->
+<!--        android:title="@string/dashboard_txt"-->
+<!--        android:icon="@drawable/dashboard_icon"/>-->
+
+    <item
+        android:id="@+id/funds"
+        android:title="@string/funds_txt"
+        android:icon="@drawable/funds_icon"/>
+
+    <item
+        android:id="@+id/attendance"
+        android:title="@string/attendance_txt"
+        android:icon="@drawable/profile_icon"/>
+
+    <item
+        android:id="@+id/members"
+        android:title="@string/members_txt"
+        android:icon="@drawable/logout_icon"/>
+
+</menu>
