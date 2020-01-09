@@ -4,7 +4,7 @@
     xmlns:smb="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground">
+    android:background="@color/backgroundDefault">
 
     <include
         layout="@layout/header"
@@ -14,7 +14,7 @@
         android:id="@+id/header_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorDivider"
+        android:background="@color/dividerDefault"
         android:layout_below="@+id/header"/>
 
     <FrameLayout
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        smb:backgroundColor="@color/colorPrimary"
+        smb:backgroundColor="@color/backgroundBlue"
         smb:iconSize="25dp"
         smb:menu="@menu/bottom_nav"/>
 

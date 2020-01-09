@@ -20,7 +20,7 @@
             android:text="@string/members_txt"
             android:layout_marginBottom="20dp"
             android:layout_marginHorizontal="15dp"
-            android:textColor="@color/colorTextLight"
+            android:textColor="@color/textTitle"
             android:textAllCaps="true"
             tools:targetApi="o" />
 

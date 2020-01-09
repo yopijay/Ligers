@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/otp_detail_txt"
+            android:textColor="@color/textDefault"
             android:layout_marginBottom="40dp"/>
 
         <br.com.sapereaude.maskedEditText.MaskedEditText
@@ -41,6 +42,7 @@
             android:inputType="number"
             android:hint="@string/otp_code_hint"
             android:layout_marginBottom="5dp"
+            android:textColor="@color/textDefault"
             app:keep_hint="true"
             mask:allowed_chars="1234567890"
             mask:mask="# # # # # #"/>
@@ -51,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/otp_resend_link"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/textLink"
             android:layout_marginBottom="20dp"/>
 
         <mehdi.sakout.fancybuttons.FancyButton
@@ -61,8 +63,8 @@
             android:layout_marginBottom="15dp"
             android:layout_marginHorizontal="40dp"
             fancy:fb_text="@string/otp_btn"
-            fancy:fb_textColor="@color/colorPrimaryDark"
-            fancy:fb_defaultColor="@color/colorPrimary"
+            fancy:fb_textColor="@color/textWhite"
+            fancy:fb_defaultColor="@color/backgroundBlue"
             fancy:fb_radius="50dp"
             fancy:fb_textGravity="center"/>
 

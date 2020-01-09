@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/sn_txt"
                     android:textAllCaps="true"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/textDefault"
                     android:layout_marginBottom="10dp"/>
 
                 <br.com.sapereaude.maskedEditText.MaskedEditText
@@ -53,6 +53,7 @@
                     android:textAlignment="center"
                     android:inputType="number"
                     android:hint="@string/sn_hint"
+                    android:textColor="@color/textDefault"
                     app:keep_hint="true"
                     mask:allowed_chars="1234567890"
                     mask:mask="##-####"/>
@@ -65,8 +66,8 @@
                 android:layout_height="45dp"
                 android:layout_marginBottom="15dp"
                 fancy:fb_text="@string/login_btn"
-                fancy:fb_textColor="@color/colorPrimaryDark"
-                fancy:fb_defaultColor="@color/colorPrimary"
+                fancy:fb_textColor="@color/textWhite"
+                fancy:fb_defaultColor="@color/backgroundBlue"
                 fancy:fb_radius="50dp"
                 fancy:fb_textGravity="center"/>
 
@@ -75,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
+                android:textColor="@color/textDefault"
                 android:text="@string/otp_txt"
                 android:textAlignment="textStart"/>
 
@@ -90,6 +92,6 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
-        android:textColor="@color/colorText"/>
+        android:textColor="@color/textDefault"/>
 
 </RelativeLayout>
