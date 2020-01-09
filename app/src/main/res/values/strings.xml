@@ -33,7 +33,7 @@
     <string name="year_txt">Year</string>
     <string name="month_value">00</string>
     <string name="day_value">00</string>
-    <string name="year_value">0000</string>
+    <string name="year_value">00</string>
     <string name="present_txt">Present</string>
     <string name="absent_txt">Absent</string>
     <string name="late_txt">Late</string>
@@ -41,4 +41,5 @@
     <string name="absent_value">00</string>
     <string name="late_value">00</string>
     <string name="summary_txt">Summary</string>
+    <string name="view_txt">See more...</string>
 </resources>

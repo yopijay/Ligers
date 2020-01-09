@@ -10,6 +10,10 @@
     <color name="textWhite">#FFFFFF</color>
     <color name="textTitle">#868686</color>
     <color name="textBlack">#000000</color>
+    <color name="textRed">#FF6464</color>
+    <color name="textBlue">#57A7FF</color>
+    <color name="textGreen">#43A047</color>
+    <color name="textYellow">#FDD835</color>
 
     <!-- Background Colors -->
     <color name="backgroundLight">#F4EEEB</color>
@@ -17,6 +21,10 @@
     <color name="backgroundBlue">#00B0FF</color>
     <color name="backgroundWhite">#FFFFFF</color>
     <color name="backgroundBlack">#000000</color>
+    <color name="backgroundRed">#FF6464</color>
+    <color name="backgroundLightBlue">#57A7FF</color>
+    <color name="backgroundGreen">#43A047</color>
+    <color name="backgroundYellow">#FDD835</color>
 
     <!-- Others -->
     <color name="dividerDefault">#EEEEEE</color>

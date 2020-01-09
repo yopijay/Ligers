@@ -3,27 +3,27 @@
 
     <item
         android:id="@+id/dashboard"
-        android:title="@string/dashboard_txt"
+        android:title=""
         android:icon="@drawable/dashboard_icon"/>
 
     <item
         android:id="@+id/funds"
-        android:title="@string/funds_txt"
+        android:title=""
         android:icon="@drawable/funds_icon"/>
 
     <item
         android:id="@+id/attendance"
-        android:title="@string/attendance_txt"
+        android:title= ""
         android:icon="@drawable/calendar_icon"/>
 
     <item
         android:id="@+id/members"
-        android:title="@string/members_txt"
+        android:title=""
         android:icon="@drawable/member_icon"/>
 
     <item
         android:id="@+id/other"
-        android:title="@string/other_txt"
+        android:title=""
         android:icon="@drawable/more_icon"/>
 
 </menu>
