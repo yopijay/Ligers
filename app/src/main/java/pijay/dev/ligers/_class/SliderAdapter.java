@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
 import pijay.dev.ligers.R;
 
 public class SliderAdapter extends BaseAdapter {
