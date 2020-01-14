@@ -44,4 +44,5 @@
     <string name="top_attendee_title">TOP 3 Attendees</string>
     <string name="default_txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="default_name">Last name</string>
+    <string name="search_hint">Search ...</string>
 </resources>
