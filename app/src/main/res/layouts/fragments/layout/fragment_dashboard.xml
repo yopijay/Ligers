@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:ci="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -15,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:paddingBottom="50dp"
             android:orientation="vertical">
     
             <TextView
@@ -25,6 +25,16 @@
                 android:text="@string/dashboard_txt"
                 android:layout_marginBottom="20dp"
                 android:layout_marginHorizontal="15dp"
+                android:textColor="@color/textTitle"
+                android:textAllCaps="true"
+                tools:targetApi="o" />
+
+            <TextView
+                android:id="@+id/date_now_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_now_txt"
+                android:layout_marginHorizontal="25dp"
                 android:textColor="@color/textTitle"
                 android:textAllCaps="true"
                 tools:targetApi="o" />
@@ -66,7 +76,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/month_title"
-                            android:text="@string/month_value"
+                            android:text="@string/default_date"
                             android:textColor="@color/textWhite"
                             android:layout_centerHorizontal="true"/>
     
@@ -104,7 +114,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/day_title"
-                            android:text="@string/day_value"
+                            android:text="@string/default_date"
                             android:textColor="@color/textTitle"
                             android:layout_centerHorizontal="true"/>
     
@@ -142,7 +152,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/year_title"
-                            android:text="@string/year_value"
+                            android:text="@string/default_date"
                             android:textColor="@color/textTitle"
                             android:layout_centerHorizontal="true"/>
     
@@ -152,8 +162,18 @@
     
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/summary_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/summary_txt"
+                android:layout_marginHorizontal="25dp"
+                android:textColor="@color/textTitle"
+                android:layout_marginTop="20dp"
+                android:textAllCaps="true"
+                tools:targetApi="o" />
+
             <RelativeLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -170,83 +190,47 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="250dp"
-                            android:layout_height="130dp"
+                            android:layout_height="50dp"
                             android:layout_marginHorizontal="10dp"
                             android:layout_marginVertical="10dp"
                             tools:targetApi="o"
-                            card_view:cardCornerRadius="10dp"
+                            card_view:cardCornerRadius="40dp"
                             card_view:cardElevation="2dp"
+                            card_view:contentPaddingRight="20dp"
                             card_view:cardBackgroundColor="@color/backgroundWhite">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:orientation="vertical">
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
 
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="5dp"
-                                    android:background="@color/backgroundRed"/>
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginEnd="20dp"
+                                    card_view:cardCornerRadius="20dp"
+                                    card_view:cardBackgroundColor="@color/backgroundBlue"
+                                    card_view:cardElevation="3dp"/>
 
                                 <TextView
                                     android:id="@+id/attendance_title_txt"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:text="@string/attendance_txt"
-                                    android:layout_marginVertical="7dp"
-                                    android:layout_marginHorizontal="15dp"
-                                    android:textColor="@color/textRed"
-                                    tools:targetApi="o"/>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
-
-                                    
-
-                                </RelativeLayout>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="250dp"
-                            android:layout_height="130dp"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginVertical="10dp"
-                            card_view:cardBackgroundColor="@color/backgroundWhite"
-                            card_view:cardCornerRadius="6dp"
-                            card_view:cardElevation="3dp"
-                            tools:targetApi="o" >
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="5dp"
-                                    android:background="@color/backgroundGreen"/>
+                                    android:layout_weight="2"
+                                    android:textColor="@color/textTitle"
+                                    tools:targetApi="o" />
 
                                 <TextView
-                                    android:id="@+id/funds_title_txt"
-                                    android:layout_width="wrap_content"
+                                    android:id="@+id/attendance_value"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/funds_txt"
-                                    android:layout_marginVertical="7dp"
-                                    android:layout_marginHorizontal="15dp"
-                                    android:textColor="@color/textGreen"
-                                    tools:targetApi="o"/>
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
-
-
-
-                                </RelativeLayout>
+                                    android:textAlignment="textEnd"
+                                    android:text="@string/default_attendance"
+                                    android:textColor="@color/textDefault" />
 
                             </LinearLayout>
 
@@ -254,41 +238,95 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="250dp"
-                            android:layout_height="130dp"
+                            android:layout_height="50dp"
                             android:layout_marginHorizontal="10dp"
                             android:layout_marginVertical="10dp"
                             tools:targetApi="o"
-                            card_view:cardCornerRadius="6dp"
-                            card_view:cardElevation="3dp"
+                            card_view:cardCornerRadius="40dp"
+                            card_view:cardElevation="2dp"
+                            card_view:contentPaddingRight="20dp"
                             card_view:cardBackgroundColor="@color/backgroundWhite">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:orientation="vertical">
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
 
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="5dp"
-                                    android:background="@color/backgroundYellow"/>
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginEnd="20dp"
+                                    card_view:cardCornerRadius="20dp"
+                                    card_view:cardBackgroundColor="@color/backgroundBlue"
+                                    card_view:cardElevation="3dp"/>
+
+                                <TextView
+                                    android:id="@+id/funds_title_txt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/funds_txt"
+                                    android:layout_weight="1"
+                                    android:textColor="@color/textTitle"
+                                    tools:targetApi="o"/>
+
+                                <TextView
+                                    android:id="@+id/funds_value"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:textAlignment="textEnd"
+                                    android:text="@string/default_funds"
+                                    android:textColor="@color/textDefault" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="250dp"
+                            android:layout_height="50dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginVertical="10dp"
+                            tools:targetApi="o"
+                            card_view:cardCornerRadius="40dp"
+                            card_view:cardElevation="2dp"
+                            card_view:contentPaddingRight="20dp"
+                            card_view:cardBackgroundColor="@color/backgroundWhite">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginEnd="20dp"
+                                    card_view:cardCornerRadius="20dp"
+                                    card_view:cardBackgroundColor="@color/backgroundBlue"
+                                    card_view:cardElevation="3dp"/>
 
                                 <TextView
                                     android:id="@+id/member_title_txt"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:text="@string/members_txt"
-                                    android:layout_marginVertical="7dp"
-                                    android:layout_marginHorizontal="15dp"
-                                    android:textColor="@color/textYellow"
+                                    android:layout_weight="2"
+                                    android:textColor="@color/textTitle"
                                     tools:targetApi="o"/>
 
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
-
-
-
-                                </RelativeLayout>
+                                <TextView
+                                    android:id="@+id/members_value"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textAlignment="textEnd"
+                                    android:text="@string/default_members"
+                                    android:textColor="@color/textDefault" />
 
                             </LinearLayout>
 
@@ -299,6 +337,294 @@
                 </HorizontalScrollView>
 
             </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="90dp"
+                tools:targetApi="o">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    card_view:contentPaddingBottom="20dp"
+                    card_view:cardElevation="2dp"
+                    card_view:cardBackgroundColor="@color/backgroundWhite"
+                    card_view:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/top_attendee_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_attendee_title"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="20dp"
+                            android:textColor="@color/textLink"
+                            android:textAllCaps="true"/>
+
+                        <TextView
+                            android:id="@+id/top_attendee_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_txt"
+                            android:layout_marginHorizontal="30dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/textLight"
+                            android:layout_marginBottom="30dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal">
+
+                                <com.github.siyamed.shapeimageview.CircularImageView
+                                    android:id="@+id/top_2_pic_attendee"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:src="@drawable/man"
+                                    ci:siBorderColor="@color/backgroundBlack"
+                                    ci:siBorderWidth="1sp"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:scaleType="centerInside"/>
+
+                                <TextView
+                                    android:id="@+id/top_2_name_attendee"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/textDefault"
+                                    android:textAlignment="center"
+                                    android:text="@string/default_name"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal">
+
+                                <com.github.siyamed.shapeimageview.CircularImageView
+                                    android:id="@+id/top_1_pic_attendee"
+                                    android:layout_width="90dp"
+                                    android:layout_height="90dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:src="@drawable/man"
+                                    ci:siBorderColor="@color/backgroundBlack"
+                                    ci:siBorderWidth="1sp"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:scaleType="centerInside"/>
+
+                                <TextView
+                                    android:id="@+id/top_1_name_attendee"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/textDefault"
+                                    android:textAlignment="center"
+                                    android:text="@string/default_name"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal">
+
+                                <com.github.siyamed.shapeimageview.CircularImageView
+                                    android:id="@+id/top_3_pic_attendee"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:src="@drawable/man"
+                                    ci:siBorderColor="@color/backgroundBlack"
+                                    ci:siBorderWidth="1sp"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:scaleType="centerInside"/>
+
+                                <TextView
+                                    android:id="@+id/top_3_name_attendee"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/textDefault"
+                                    android:textAlignment="center"
+                                    android:text="@string/default_name"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    card_view:contentPaddingBottom="20dp"
+                    card_view:cardElevation="2dp"
+                    card_view:cardBackgroundColor="@color/backgroundWhite"
+                    card_view:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/top_funds_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/top_attendee_title"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="20dp"
+                            android:textColor="@color/textLink"
+                            android:textAllCaps="true"/>
+
+                        <TextView
+                            android:id="@+id/top_funds_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_txt"
+                            android:layout_marginHorizontal="30dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/textLight"
+                            android:layout_marginBottom="30dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal">
+
+                                <com.github.siyamed.shapeimageview.CircularImageView
+                                    android:id="@+id/top_2_pic_funds"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:src="@drawable/man"
+                                    ci:siBorderColor="@color/backgroundBlack"
+                                    ci:siBorderWidth="1sp"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:scaleType="centerInside"/>
+
+                                <TextView
+                                    android:id="@+id/top_2_name_funds"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/textDefault"
+                                    android:textAlignment="center"
+                                    android:text="@string/default_name"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal">
+
+                                <com.github.siyamed.shapeimageview.CircularImageView
+                                    android:id="@+id/top_1_pic_funds"
+                                    android:layout_width="90dp"
+                                    android:layout_height="90dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:src="@drawable/man"
+                                    ci:siBorderColor="@color/backgroundBlack"
+                                    ci:siBorderWidth="1sp"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:scaleType="centerInside"/>
+
+                                <TextView
+                                    android:id="@+id/top_1_name_funds"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/textDefault"
+                                    android:textAlignment="center"
+                                    android:text="@string/default_name"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal">
+
+                                <com.github.siyamed.shapeimageview.CircularImageView
+                                    android:id="@+id/top_3_pic_funds"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:src="@drawable/man"
+                                    ci:siBorderColor="@color/backgroundBlack"
+                                    ci:siBorderWidth="1sp"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:scaleType="centerInside"/>
+
+                                <TextView
+                                    android:id="@+id/top_3_name_funds"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/textDefault"
+                                    android:textAlignment="center"
+                                    android:text="@string/default_name"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
     
         </LinearLayout>
 

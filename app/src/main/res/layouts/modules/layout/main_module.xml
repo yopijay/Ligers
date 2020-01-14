@@ -23,13 +23,22 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/header_divider"/>
 
+    <View
+        android:id="@+id/footer_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dividerDefault"
+        android:layout_above="@id/bottom_bar"/>
+
     <me.ibrahimsn.lib.SmoothBottomBar
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        smb:backgroundColor="@color/backgroundBlue"
+        smb:backgroundColor="@color/backgroundWhite"
         smb:iconSize="30dp"
+        smb:iconTint="@color/textLight"
+        smb:iconTintActive="@color/textLink"
         smb:menu="@menu/bottom_nav"/>
 
 </RelativeLayout>
