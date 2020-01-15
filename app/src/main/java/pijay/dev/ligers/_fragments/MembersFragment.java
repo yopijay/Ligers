@@ -21,6 +21,8 @@ public class MembersFragment extends Fragment {
 
     //TextViews
     TextView member_title;
+    TextView flyer_txt;
+    TextView lifter_txt;
 
     @Nullable
     @Override
@@ -34,6 +36,13 @@ public class MembersFragment extends Fragment {
 
     public void init() {
         member_title = (TextView) CustomFieldDesign.design(member_title, R.id.member_title_txt, 20, members);
+
+        flyer_txt = (TextView) CustomFieldDesign.design(flyer_txt, R.id.flyer_txt, 20, members);
+        lifter_txt = (TextView) CustomFieldDesign.design(lifter_txt, R.id.lifter_txt, 20, members);
+
         CustomFont.Monoround.setFont(member_title, MembersFragment.this);
+
+        CustomFont.Monoround.setFont(flyer_txt, MembersFragment.this);
+        CustomFont.Monoround.setFont(lifter_txt, MembersFragment.this);
     }
 }

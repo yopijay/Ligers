@@ -46,4 +46,6 @@
     <string name="default_name">Last name</string>
     <string name="search_hint">Search ...</string>
     <string name="logs_txt">Logs</string>
+    <string name="female_txt">Flyer</string>
+    <string name="male_txt">Lifter</string>
 </resources>
