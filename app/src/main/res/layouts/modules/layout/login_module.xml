@@ -6,7 +6,7 @@
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/quali_pyramid">
+    android:background="@drawable/img_quali_pyramid">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginBottom="120dp"
-                android:src="@drawable/ligers_latest"/>
+                android:src="@drawable/img_ligers_latest"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                     android:id="@+id/sn_txtbox"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:background="@drawable/rounded_edittext"
+                    android:background="@drawable/edittext_rounded"
                     android:textAlignment="center"
                     android:inputType="number"
                     android:hint="@string/sn_hint"

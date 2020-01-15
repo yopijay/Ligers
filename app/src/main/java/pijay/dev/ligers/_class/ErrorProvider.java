@@ -37,11 +37,11 @@ public class ErrorProvider {
             if(_context instanceof Activity) {
                 if(((MaskedEditText) v).getRawText().equals("000000") || ((EditText) v).getText().toString().isEmpty()) {
                     counter++;
-                    v.setBackground(((Activity) _context).getDrawable(R.drawable.error_rounded_edittext));
+                    v.setBackground(((Activity) _context).getDrawable(R.drawable.edittext_rounded_error));
                 }
                 else if(((MaskedEditText) v).getRawText().length() <= 5) {
                     counter++;
-                    v.setBackground(((Activity) _context).getDrawable(R.drawable.error_rounded_edittext));
+                    v.setBackground(((Activity) _context).getDrawable(R.drawable.edittext_rounded_error));
                 }
             }
         }
@@ -90,17 +90,17 @@ public class ErrorProvider {
 
             @Override
             public void afterTextChanged(Editable s) {
-                int result = R.drawable.rounded_edittext;
+                int result = R.drawable.edittext_rounded;
 
                 if(_context instanceof Activity) {
                     if(edittext instanceof MaskedEditText) {
                         if(((MaskedEditText) edittext).getRawText().equals("000000")) {
-                            result = R.drawable.error_rounded_edittext;
+                            result = R.drawable.edittext_rounded_error;
                         }
                     }
                     else if(edittext instanceof EditText) {
                         if(((EditText) edittext).getText().toString().isEmpty()) {
-                            result = R.drawable.error_rounded_edittext;
+                            result = R.drawable.edittext_rounded_error;
                         }
                     }
                     edittext.setBackground(((Activity) _context).getDrawable(result));

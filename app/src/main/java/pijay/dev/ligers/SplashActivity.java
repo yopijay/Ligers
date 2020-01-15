@@ -24,9 +24,9 @@ public class SplashActivity extends Activity {
 
     AdapterViewFlipper avf;
     int IMAGE[] = {
-            R.drawable.ligers_claw,
-            R.drawable.ligers_new,
-            R.drawable.ligers_latest
+            R.drawable.img_ligers_claw,
+            R.drawable.img_ligers_new,
+            R.drawable.img_ligers_latest
     };
 
     @Override

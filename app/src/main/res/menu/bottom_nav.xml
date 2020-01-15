@@ -4,26 +4,26 @@
     <item
         android:id="@+id/dashboard"
         android:title=""
-        android:icon="@drawable/dashboard_icon"/>
+        android:icon="@drawable/icon_dashboard"/>
 
     <item
         android:id="@+id/funds"
         android:title=""
-        android:icon="@drawable/funds_icon"/>
+        android:icon="@drawable/icon_funds"/>
 
     <item
         android:id="@+id/attendance"
         android:title= ""
-        android:icon="@drawable/calendar_icon"/>
+        android:icon="@drawable/icon_calendar"/>
 
     <item
         android:id="@+id/members"
         android:title=""
-        android:icon="@drawable/member_icon"/>
+        android:icon="@drawable/icon_member"/>
 
     <item
         android:id="@+id/other"
         android:title=""
-        android:icon="@drawable/more_icon"/>
+        android:icon="@drawable/icon_more"/>
 
 </menu>

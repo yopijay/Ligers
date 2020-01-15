@@ -14,13 +14,13 @@
         android:layout_height="wrap_content"
         android:paddingVertical="40dp"
         android:orientation="vertical"
-        android:background="@drawable/otp_background">
+        android:background="@drawable/background_otp">
 
         <ImageView
             android:layout_gravity="center_horizontal"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:src="@drawable/otp_icon"
+            android:src="@drawable/icon_otp"
             android:layout_marginBottom="15dp"/>
 
         <TextView
@@ -36,7 +36,7 @@
             android:id="@+id/otp_code_txtbox"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:background="@drawable/rounded_edittext"
+            android:background="@drawable/edittext_rounded"
             android:layout_marginHorizontal="40dp"
             android:textAlignment="center"
             android:inputType="number"
