@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.sdsmdg.tastytoast.TastyToast;
 
+import mehdi.sakout.fancybuttons.FancyButton;
 import pijay.dev.ligers.R;
 import pijay.dev.ligers._class.CustomFieldDesign;
 import pijay.dev.ligers._class.CustomFont;
@@ -29,6 +30,10 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
 
     //EditTexts
     EditText search_txtbox;
+
+    //FancyButtons
+    FancyButton add_member_btn;
+    FancyButton add_tryout_btn;
 
     @Nullable
     @Override
@@ -48,12 +53,18 @@ public class MembersFragment extends Fragment implements View.OnClickListener {
 
         search_txtbox = (EditText) CustomFieldDesign.design(search_txtbox, R.id.search_txtbox, 15, members);
 
+        add_member_btn = (FancyButton) CustomFieldDesign.design(add_member_btn, R.id.add_member_btn, 15, members);
+        add_tryout_btn = (FancyButton) CustomFieldDesign.design(add_tryout_btn, R.id.add_tryout_btn, 15, members);
+
         CustomFont.Monoround.setFont(member_title, MembersFragment.this);
 
         CustomFont.Monoround.setFont(flyer_txt, MembersFragment.this);
         CustomFont.Monoround.setFont(lifter_txt, MembersFragment.this);
 
         CustomFont.CenturyGothic.setFont(search_txtbox, MembersFragment.this);
+
+        CustomFont.Monoround.setFont(add_member_btn, MembersFragment.this);
+        CustomFont.Monoround.setFont(add_tryout_btn, MembersFragment.this);
     }
 
     @Override

@@ -26,7 +26,7 @@
     <color name="backgroundLightBlue">#57A7FF</color>
     <color name="backgroundGreen">#43A047</color>
     <color name="backgroundYellow">#FDD835</color>
-    <color name="backgroundActive">#94A5A5A5</color>
+    <color name="backgroundActive">#DFDFDF</color>
 
     <!-- Others -->
     <color name="dividerDefault">#EEEEEE</color>

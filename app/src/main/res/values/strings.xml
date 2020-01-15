@@ -47,6 +47,8 @@
     <string name="search_hint">Search ...</string>
     <string name="search_txt">Search</string>
     <string name="logs_txt">Logs</string>
-    <string name="female_txt">Flyer</string>
-    <string name="male_txt">Lifter</string>
+    <string name="female_txt">Girls</string>
+    <string name="male_txt">Boys</string>
+    <string name="add_txt">Add Member</string>
+    <string name="tryout_txt">Add Tryout</string>
 </resources>

@@ -35,6 +35,7 @@ public class CustomFieldDesign {
         else if(field instanceof FancyButton) {
             ((FancyButton) field).setCustomTextFont("Monoround.otf");
             ((FancyButton) field).setTextSize(size);
+            ((FancyButton) field).setTextAllCaps(true);
         }
         return field;
     }
