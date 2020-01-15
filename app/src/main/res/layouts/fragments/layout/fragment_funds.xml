@@ -102,7 +102,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -174,19 +175,32 @@
 
             </RelativeLayout>
 
-            <EditText
-                android:id="@+id/search_txtbox"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="@string/search_hint"
-                android:layout_marginTop="20dp"
-                android:layout_marginHorizontal="20dp"
-                android:paddingHorizontal="20dp"
-                android:layout_marginBottom="10dp"
-                tools:targetApi="o"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/logs_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:text="@string/logs_txt"
+                    android:textColor="@color/textDefault"
+                    android:textAllCaps="true"
+                    tools:targetApi="o"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/dividerDefault"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+         </LinearLayout>
 
     </ScrollView>
 

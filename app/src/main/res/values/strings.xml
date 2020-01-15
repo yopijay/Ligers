@@ -45,4 +45,5 @@
     <string name="default_txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="default_name">Last name</string>
     <string name="search_hint">Search ...</string>
+    <string name="logs_txt">Logs</string>
 </resources>

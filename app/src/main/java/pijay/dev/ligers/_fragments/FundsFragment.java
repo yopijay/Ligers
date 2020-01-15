@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,9 @@ public class FundsFragment extends Fragment {
     TextView cash_onhand_title;
     TextView balance;
     TextView balance_title;
+    TextView logs_txt;
+
+    //EditTexts
 
     @Nullable
     @Override
@@ -56,6 +60,8 @@ public class FundsFragment extends Fragment {
         cash_onhand_title = (TextView) CustomFieldDesign.design(cash_onhand_title, R.id.cash_onhand_title, 12, funds);
         balance_title = (TextView) CustomFieldDesign.design(balance_title, R.id.balance_title, 12, funds);
 
+        logs_txt = (TextView) CustomFieldDesign.design(logs_txt, R.id.logs_txt, 15, funds);
+
         CustomFont.Monoround.setFont(funds_title_txt, FundsFragment.this);
         CustomFont.LatoLight.setFont(date_now_txt, FundsFragment.this);
 
@@ -66,6 +72,8 @@ public class FundsFragment extends Fragment {
         CustomFont.LatoBold.setFont(total_funds_title, FundsFragment.this);
         CustomFont.LatoBold.setFont(cash_onhand_title, FundsFragment.this);
         CustomFont.LatoBold.setFont(balance_title, FundsFragment.this);
+
+        CustomFont.LatoLight.setFont(logs_txt, FundsFragment.this);
     }
 
     public void displayCurrentDate() {
