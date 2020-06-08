@@ -40,7 +40,6 @@ public class Dialogs implements View.OnClickListener {
 
     //Others
     ErrorProvider error;
-
     private Context getContext() {
 
         if(_object instanceof Activity) {
@@ -50,6 +49,7 @@ public class Dialogs implements View.OnClickListener {
             return ((Fragment) _object).getContext();
 
         }
+
 
         return ((Context) _object);
     }
