@@ -35,7 +35,7 @@
     <!-- Others -->
     <string name="creator_txt">Developed by Paul John Judan</string>
     <string name="otp_txt">We will send you a One Time Password on your phone number after you hit the LOGIN button</string>
-    <string name="otp_detail_txt">You will get a OTP via SMS</string>
+    <string name="otp_detail_txt">You will get an OTP via SMS</string>
     <string name="status_txt">Status</string>
     <string name="summary_txt">Summary</string>
     <string name="view_txt">See more...</string>
